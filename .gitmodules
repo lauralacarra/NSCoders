@@ -1,0 +1,15 @@
+[submodule "vendor/BackbeamFramework"]
+	path = vendor/BackbeamFramework
+	url = https://github.com/backbeam/BackbeamFramework.git
+[submodule "vendor/AFNetworking"]
+	path = vendor/AFNetworking
+	url = https://github.com/AFNetworking/AFNetworking.git
+[submodule "vendor/SocketRocket"]
+	path = vendor/SocketRocket
+	url = https://github.com/square/SocketRocket.git
+[submodule "vendor/socket.IO-objc"]
+	path = vendor/socket.IO-objc
+	url = https://github.com/pkyeck/socket.IO-objc
+[submodule "vendor/JSONKit"]
+	path = vendor/JSONKit
+	url = https://github.com/johnezang/JSONKit.git
