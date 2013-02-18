@@ -8,7 +8,6 @@ App for NSCoders hangouts. The purpose of this app is to help NSCoder groups wor
 1. Download the source code:    
  	``$ git clone git@github.com:veladan/NSCoderApp.git``
 2. Update submodules:    
-
 	```
 	$ git submodule init      
 	$ git submodule update    
