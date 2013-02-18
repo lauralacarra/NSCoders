@@ -12,6 +12,5 @@ App for NSCoders hangouts. The purpose of this app is to help NSCoder groups wor
 	$ git submodule init      
 	$ git submodule update    
 	```
-
 3. Open Xcode:   
 	``$ open NSCoderApp.xcodeproj``
