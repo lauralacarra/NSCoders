@@ -15,8 +15,8 @@ $ cd NSCoderApp
 2. Update submodules:    
 
 ```
-	$ git submodule init      
-	$ git submodule update    
+$ git submodule init      
+$ git submodule update    
 ```
 
 3. Open Xcode:   
