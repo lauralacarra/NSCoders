@@ -17,7 +17,6 @@
 		1026E20E16D2462D007A2149 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1026E20D16D2462D007A2149 /* Default.png */; };
 		1026E21016D2462D007A2149 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1026E20F16D2462D007A2149 /* Default@2x.png */; };
 		1026E21216D2462D007A2149 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1026E21116D2462D007A2149 /* Default-568h@2x.png */; };
-		1026E21516D2462D007A2149 /* NSCoderApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1026E21316D2462D007A2149 /* NSCoderApp.xcdatamodeld */; };
 		1026E21D16D2462E007A2149 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1026E21C16D2462E007A2149 /* SenTestingKit.framework */; };
 		1026E21E16D2462E007A2149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1026E1F916D2462D007A2149 /* UIKit.framework */; };
 		1026E21F16D2462E007A2149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1026E1FB16D2462D007A2149 /* Foundation.framework */; };
@@ -60,6 +59,7 @@
 		1026E2FC16D26FE3007A2149 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1026E2AD16D25C1D007A2149 /* SocketIOPacket.m */; };
 		1026E2FD16D26FE3007A2149 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1026E2B016D25C1D007A2149 /* SocketIOTransportWebsocket.m */; };
 		1026E2FE16D26FE3007A2149 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 1026E2B216D25C1D007A2149 /* SocketIOTransportXHR.m */; };
+		108288F816D292D800131E85 /* NSCoderApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 108288F616D292D800131E85 /* NSCoderApp.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,7 +101,6 @@
 		1026E20D16D2462D007A2149 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		1026E20F16D2462D007A2149 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		1026E21116D2462D007A2149 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		1026E21416D2462D007A2149 /* NSCoderApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NSCoderApp.xcdatamodel; sourceTree = "<group>"; };
 		1026E21B16D2462E007A2149 /* NSCoderAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSCoderAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1026E21C16D2462E007A2149 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1026E22516D2462E007A2149 /* NSCoderAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSCoderAppTests-Info.plist"; sourceTree = "<group>"; };
@@ -236,6 +235,7 @@
 		1026E2F616D26E73007A2149 /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		1026E2F716D26E73007A2149 /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		1026E2F816D26E73007A2149 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		108288F716D292D800131E85 /* NSCoderApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NSCoderApp.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,9 +310,11 @@
 		1026E20116D2462D007A2149 /* NSCoderApp */ = {
 			isa = PBXGroup;
 			children = (
+				108288FA16D292EB00131E85 /* Controller */,
+				108288F916D292DF00131E85 /* View */,
+				108288F316D2926700131E85 /* Model */,
 				1026E20A16D2462D007A2149 /* AppDelegate.h */,
 				1026E20B16D2462D007A2149 /* AppDelegate.m */,
-				1026E21316D2462D007A2149 /* NSCoderApp.xcdatamodeld */,
 				1026E20216D2462D007A2149 /* Supporting Files */,
 			);
 			path = NSCoderApp;
@@ -649,6 +651,28 @@
 			path = JSONKit;
 			sourceTree = "<group>";
 		};
+		108288F316D2926700131E85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				108288F616D292D800131E85 /* NSCoderApp.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		108288F916D292DF00131E85 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		108288FA16D292EB00131E85 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -788,7 +812,6 @@
 			files = (
 				1026E20816D2462D007A2149 /* main.m in Sources */,
 				1026E20C16D2462D007A2149 /* AppDelegate.m in Sources */,
-				1026E21516D2462D007A2149 /* NSCoderApp.xcdatamodeld in Sources */,
 				1026E2D116D25C3C007A2149 /* base64.c in Sources */,
 				1026E2D216D25C3C007A2149 /* NSData+SRB64Additions.m in Sources */,
 				1026E2D316D25C3C007A2149 /* SRWebSocket.m in Sources */,
@@ -819,6 +842,7 @@
 				1026E2FC16D26FE3007A2149 /* SocketIOPacket.m in Sources */,
 				1026E2FD16D26FE3007A2149 /* SocketIOTransportWebsocket.m in Sources */,
 				1026E2FE16D26FE3007A2149 /* SocketIOTransportXHR.m in Sources */,
+				108288F816D292D800131E85 /* NSCoderApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,12 +1055,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		1026E21316D2462D007A2149 /* NSCoderApp.xcdatamodeld */ = {
+		108288F616D292D800131E85 /* NSCoderApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				1026E21416D2462D007A2149 /* NSCoderApp.xcdatamodel */,
+				108288F716D292D800131E85 /* NSCoderApp.xcdatamodel */,
 			);
-			currentVersion = 1026E21416D2462D007A2149 /* NSCoderApp.xcdatamodel */;
+			currentVersion = 108288F716D292D800131E85 /* NSCoderApp.xcdatamodel */;
 			path = NSCoderApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
