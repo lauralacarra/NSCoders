@@ -15,3 +15,8 @@ Requerimientos
 - Podría haber un top de grupos por número de miembros o actividad.
 - Pondría comentarios a los eventos. Porque creo que si no la app puede ser muy poco interactiva. Los comentarios podrían usarse antes del evento y también durante el evento para "tomar apuntes". Como se hace en twitter que la gente va comentando con el hashtag. Así cualquiera puede al día siguiente consultar de qué se habló (un nombre de un framework, de un servicio, de un blog,…).
 - El creador del grupo es su administrador por defecto.
+
+Roles de usuario:
+ - Administrador
+ - Miembro
+ - No miembro
