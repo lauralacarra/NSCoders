@@ -58,6 +58,7 @@
 		1026E22716D2462E007A2149 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1026E22916D2462E007A2149 /* NSCoderAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSCoderAppTests.h; sourceTree = "<group>"; };
 		1026E22A16D2462E007A2149 /* NSCoderAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSCoderAppTests.m; sourceTree = "<group>"; };
+		1026E23516D24733007A2149 /* requerimientos.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = requerimientos.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +90,7 @@
 		1026E1ED16D2462C007A2149 = {
 			isa = PBXGroup;
 			children = (
+				1026E23416D246BE007A2149 /* doc */,
 				1026E20116D2462D007A2149 /* NSCoderApp */,
 				1026E22316D2462E007A2149 /* NSCoderAppTests */,
 				1026E1F816D2462C007A2149 /* Frameworks */,
@@ -159,6 +161,14 @@
 				1026E22616D2462E007A2149 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1026E23416D246BE007A2149 /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				1026E23516D24733007A2149 /* requerimientos.txt */,
+			);
+			path = doc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

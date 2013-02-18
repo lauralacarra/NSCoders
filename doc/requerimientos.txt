@@ -1,0 +1,17 @@
+Requerimientos
+===============
+
+- Solo los administradores grupo puede dar de alta un evento. 
+- Todos los usuarios podrán ver los eventos e indicar si van a asistir, si no pueden o si quizás (al igual que hace Facebook con sus eventos)
+- Los administradores podrán cancelar cualquier evento. En ese momento se enviará una notificación a todos los usuarios que contestaron al evento indicando si podían ir/no/quizás.
+- Al crear el evento se indicará fecha, lugar y descripción. En la descripción se podrán añadir URL con información adicional.
+- En la visualización de un evento se verá la fecha, un mapa con la ubicación y la descripción con las URL resaltadas para que al pulsar sobre ellas se lance el Safari. También se podrá visualizar la lista de asistentes seguros/posibles/rechazaron.
+- El login del usuario se podría hacer con una cuenta de Twitter, así ya tenemos nombre, foto y la posibilidad de twittear con su cuenta.
+- Cualquiera podrá compartir con su cuenta de twitter el evento. (Si no me equivoco, creo que hay una manera de poner en los tweets una url que lance nuestra app. Poniendo un esquema de lanzamiento a la app y pasando el id del evento por parámetro o algo así)
+- La app guardará los datos de los eventos para poder acceder a ellos sin necesidad de conexión con un servidor.
+- Cada ciudad podría ser un grupo. Y te podrías suscribir a notificaciones del grupo. Así sabrías cuando un nuevo evento ha sido convocado. Y cuando haya muchas ciudades será más sencillo ver sólo lo que te interesa.
+- En el grupo podría haber uno o varios administradores y sólo esos administradores pueden convocar eventos.
+- La app en una primera ejecución podría sugerirte los grupos más cercanos a tu ubicación.
+- Podría haber un top de grupos por número de miembros o actividad.
+- Pondría comentarios a los eventos. Porque creo que si no la app puede ser muy poco interactiva. Los comentarios podrían usarse antes del evento y también durante el evento para "tomar apuntes". Como se hace en twitter que la gente va comentando con el hashtag. Así cualquiera puede al día siguiente consultar de qué se habló (un nombre de un framework, de un servicio, de un blog,…).
+- El creador del grupo es su administrador por defecto.
