@@ -10,12 +10,15 @@ App for NSCoders hangouts. The purpose of this app is to help NSCoder groups wor
 $ git clone git@github.com:veladan/NSCoderApp.git
 $ cd NSCoderApp
 ```
+
 2. Update submodules:    
 ```
 $ git submodule init      
 $ git submodule update    
 ```
+
 3. Open Xcode:   
 ```
 $ open NSCoderApp.xcodeproj
 ```
+
