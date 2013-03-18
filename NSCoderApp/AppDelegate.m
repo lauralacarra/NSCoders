@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Backbeam.h"
 
 @implementation AppDelegate
 
@@ -16,9 +17,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [Backbeam setProject:@"your_project" sharedKey:@"your-shared-key" secretKey:@"your-secret-key" environment:@"enviroment"];
-  [Backbeam setTwitterConsumerKey:@"..." consumerSecret:@"..."]; // optional, if you want to suppor authentication using twitter.
+  [Backbeam setProject:@"nscoder" sharedKey:@"a6f611a349544a5f0f49f2ecca1dac1a536f5b43" secretKey:@"4efa6b97dc0cd2dae11fccb156607d40db3117894bd8f172a64540b137251c8c79f141fd212478bb" environment:@"dev"];
+  // [Backbeam setTwitterConsumerKey:@"..." consumerSecret:@"..."]; // optional, if you want to suppor authentication using twitter.
 
+    BBQuery *query = [Backbeam queryForEntity:@"group"];
+    [query setFetchPolicy:BBFetchPolicyLocalAndRemote];
+    [query fetch:100 offset:0 success:^(NSArray* groups, NSInteger total, BOOL fromCache) {
+        
+        NSLog(@"from cache %@", fromCache?@"yes":@"no");
+        for (BBObject *group in groups) {
+            NSLog(@"group = %@", [group stringForField:@"name"]);
+        }
+     
+    } failure:^(NSError *error) {
+        NSLog(@"error %@", error);
+    }];
+    
 
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   // Override point for customization after application launch.
