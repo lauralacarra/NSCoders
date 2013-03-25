@@ -129,7 +129,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BBObject *event = [self.events objectAtIndex:indexPath.row];
-    EventViewController *vc = [[EventViewController alloc] init];
+    EventViewController *vc = [[EventViewController alloc] initWithStyle:UITableViewStyleGrouped];
     vc.event = event;
     [self.navigationController pushViewController:vc animated:YES];
 }

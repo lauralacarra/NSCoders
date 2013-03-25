@@ -76,11 +76,21 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return nil;
+    }
+    return @"Comments";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (section == 0) {
+        return 2;
+    }
     return self.comments.count;
 }
 
@@ -92,8 +102,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    BBObject *comment = [self.comments objectAtIndex:indexPath.row];
-    cell.textLabel.text = [comment stringForField:@"text"];
+    if (indexPath.section == 0) {
+        cell.textLabel.text = [NSString stringWithFormat:@"cell %d", indexPath.row];
+    } else {
+        BBObject *comment = [self.comments objectAtIndex:indexPath.row];
+        cell.textLabel.text = [comment stringForField:@"text"];
+    }
     
     return cell;
 }
