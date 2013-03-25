@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Backbeam.h"
 
 @interface GroupViewController : UITableViewController
+
+@property (nonatomic, strong) BBObject *group;
 
 @end

@@ -10,6 +10,8 @@
 
 @interface EventViewController ()
 
+@property (nonatomic, strong) NSArray *comments;
+
 @end
 
 @implementation EventViewController
@@ -32,6 +34,36 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.title = [self.event stringForField:@"name"];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    // [self refreshComments:NO];
+    [self.refreshControl beginRefreshing];
+    [self refresh];
+}
+
+- (void)refresh {
+    [self refreshComments:YES];
+}
+
+- (void)refreshComments:(BOOL)avoidCache {
+    BBQuery *query = [Backbeam queryForEntity:@"comment"];
+    [query setQuery:@"where event is ?" withParams:@[self.event]];
+    if (!avoidCache) {
+        [query setFetchPolicy:BBFetchPolicyLocalAndRemote];
+    }
+    [query fetch:100 offset:0 success:^(NSArray* comments, NSInteger total, BOOL fromCache) {
+        
+        self.comments = comments;
+        [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
+        
+    } failure:^(NSError *error) {
+        NSLog(@"error %@", error);
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,24 +76,24 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return self.comments.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
-    // Configure the cell...
+    BBObject *comment = [self.comments objectAtIndex:indexPath.row];
+    cell.textLabel.text = [comment stringForField:@"text"];
     
     return cell;
 }

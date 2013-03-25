@@ -7,8 +7,11 @@
 //
 
 #import "GroupViewController.h"
+#import "EventViewController.h"
 
 @interface GroupViewController ()
+
+@property (nonatomic, strong) NSArray *events;
 
 @end
 
@@ -32,6 +35,21 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    BBQuery *query = [Backbeam queryForEntity:@"event"];
+    [query setQuery:@"where group is ?" withParams:@[self.group]];
+    [query setFetchPolicy:BBFetchPolicyLocalAndRemote];
+    [query fetch:100 offset:0 success:^(NSArray* events, NSInteger total, BOOL fromCache) {
+        
+        self.events = events;
+        [self.tableView reloadData];
+        
+    } failure:^(NSError *error) {
+        NSLog(@"error %@", error);
+    }];
+    
+    self.title = [self.group stringForField:@"name"];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,24 +62,25 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return self.events.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     
-    // Configure the cell...
+    BBObject *event = [self.events objectAtIndex:indexPath.row];
+    cell.textLabel.text = [event stringForField:@"name"];
     
     return cell;
 }
@@ -109,13 +128,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    BBObject *event = [self.events objectAtIndex:indexPath.row];
+    EventViewController *vc = [[EventViewController alloc] init];
+    vc.event = event;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

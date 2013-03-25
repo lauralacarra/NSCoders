@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Backbeam.h"
 
 @interface EventViewController : UITableViewController
+
+@property (nonatomic, strong) BBObject *event;
 
 @end

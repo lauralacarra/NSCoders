@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface GroupsViewController : UIViewController
+@interface GroupsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) MKMapView *mapView;
 
 @end

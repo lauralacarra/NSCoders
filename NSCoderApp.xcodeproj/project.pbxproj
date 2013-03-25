@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0940B3DC1700D1760000F516 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0940B3DB1700D1760000F516 /* SignupViewController.m */; };
+		0940B3DF1700D1820000F516 /* GroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0940B3DE1700D1820000F516 /* GroupsViewController.m */; };
+		0940B3E21700D1B90000F516 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0940B3E11700D1B90000F516 /* GroupViewController.m */; };
+		0940B3E51700D2140000F516 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0940B3E41700D2140000F516 /* EventViewController.m */; };
+		0940B3E81700D24B0000F516 /* CommentCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0940B3E71700D24B0000F516 /* CommentCreateViewController.m */; };
+		0940B3EC1700D28B0000F516 /* GroupParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0940B3EB1700D28B0000F516 /* GroupParticipantsViewController.m */; };
+		0940B3EF1700D2C20000F516 /* EventAttendeesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0940B3EE1700D2C20000F516 /* EventAttendeesViewController.m */; };
+		0940B3F11700D4320000F516 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0940B3F01700D4320000F516 /* MapKit.framework */; };
 		1026E1FA16D2462D007A2149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1026E1F916D2462D007A2149 /* UIKit.framework */; };
 		1026E1FC16D2462D007A2149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1026E1FB16D2462D007A2149 /* Foundation.framework */; };
 		1026E1FE16D2462D007A2149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1026E1FD16D2462D007A2149 /* CoreGraphics.framework */; };
@@ -59,7 +67,6 @@
 		1026E2FC16D26FE3007A2149 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1026E2AD16D25C1D007A2149 /* SocketIOPacket.m */; };
 		1026E2FD16D26FE3007A2149 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1026E2B016D25C1D007A2149 /* SocketIOTransportWebsocket.m */; };
 		1026E2FE16D26FE3007A2149 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 1026E2B216D25C1D007A2149 /* SocketIOTransportXHR.m */; };
-		108288F816D292D800131E85 /* NSCoderApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 108288F616D292D800131E85 /* NSCoderApp.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +94,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0940B3DA1700D1760000F516 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		0940B3DB1700D1760000F516 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		0940B3DD1700D1820000F516 /* GroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupsViewController.h; sourceTree = "<group>"; };
+		0940B3DE1700D1820000F516 /* GroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupsViewController.m; sourceTree = "<group>"; };
+		0940B3E01700D1B90000F516 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
+		0940B3E11700D1B90000F516 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
+		0940B3E31700D2140000F516 /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
+		0940B3E41700D2140000F516 /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		0940B3E61700D24B0000F516 /* CommentCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCreateViewController.h; sourceTree = "<group>"; };
+		0940B3E71700D24B0000F516 /* CommentCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCreateViewController.m; sourceTree = "<group>"; };
+		0940B3EA1700D28B0000F516 /* GroupParticipantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupParticipantsViewController.h; sourceTree = "<group>"; };
+		0940B3EB1700D28B0000F516 /* GroupParticipantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupParticipantsViewController.m; sourceTree = "<group>"; };
+		0940B3ED1700D2C20000F516 /* EventAttendeesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAttendeesViewController.h; sourceTree = "<group>"; };
+		0940B3EE1700D2C20000F516 /* EventAttendeesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventAttendeesViewController.m; sourceTree = "<group>"; };
+		0940B3F01700D4320000F516 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1026E1F616D2462C007A2149 /* NSCoderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSCoderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1026E1F916D2462D007A2149 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1026E1FB16D2462D007A2149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -235,7 +257,6 @@
 		1026E2F616D26E73007A2149 /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		1026E2F716D26E73007A2149 /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		1026E2F816D26E73007A2149 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		108288F716D292D800131E85 /* NSCoderApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NSCoderApp.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +264,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0940B3F11700D4320000F516 /* MapKit.framework in Frameworks */,
 				1026E2E616D26D04007A2149 /* MobileCoreServices.framework in Frameworks */,
 				1026E2E416D26CC4007A2149 /* SystemConfiguration.framework in Frameworks */,
 				1026E2E216D26CA1007A2149 /* libicucore.dylib in Frameworks */,
@@ -293,6 +315,7 @@
 		1026E1F816D2462C007A2149 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0940B3F01700D4320000F516 /* MapKit.framework */,
 				1026E2E116D26CA1007A2149 /* libicucore.dylib */,
 				1026E2E516D26D04007A2149 /* MobileCoreServices.framework */,
 				1026E2E316D26CC4007A2149 /* SystemConfiguration.framework */,
@@ -310,12 +333,23 @@
 		1026E20116D2462D007A2149 /* NSCoderApp */ = {
 			isa = PBXGroup;
 			children = (
-				108288FA16D292EB00131E85 /* Controller */,
-				108288F916D292DF00131E85 /* View */,
-				108288F316D2926700131E85 /* Model */,
 				1026E20A16D2462D007A2149 /* AppDelegate.h */,
 				1026E20B16D2462D007A2149 /* AppDelegate.m */,
 				1026E20216D2462D007A2149 /* Supporting Files */,
+				0940B3DA1700D1760000F516 /* SignupViewController.h */,
+				0940B3DB1700D1760000F516 /* SignupViewController.m */,
+				0940B3DD1700D1820000F516 /* GroupsViewController.h */,
+				0940B3DE1700D1820000F516 /* GroupsViewController.m */,
+				0940B3E01700D1B90000F516 /* GroupViewController.h */,
+				0940B3E11700D1B90000F516 /* GroupViewController.m */,
+				0940B3E31700D2140000F516 /* EventViewController.h */,
+				0940B3E41700D2140000F516 /* EventViewController.m */,
+				0940B3E61700D24B0000F516 /* CommentCreateViewController.h */,
+				0940B3E71700D24B0000F516 /* CommentCreateViewController.m */,
+				0940B3EA1700D28B0000F516 /* GroupParticipantsViewController.h */,
+				0940B3EB1700D28B0000F516 /* GroupParticipantsViewController.m */,
+				0940B3ED1700D2C20000F516 /* EventAttendeesViewController.h */,
+				0940B3EE1700D2C20000F516 /* EventAttendeesViewController.m */,
 			);
 			path = NSCoderApp;
 			sourceTree = "<group>";
@@ -651,28 +685,6 @@
 			path = JSONKit;
 			sourceTree = "<group>";
 		};
-		108288F316D2926700131E85 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				108288F616D292D800131E85 /* NSCoderApp.xcdatamodeld */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		108288F916D292DF00131E85 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		108288FA16D292EB00131E85 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -842,7 +854,13 @@
 				1026E2FC16D26FE3007A2149 /* SocketIOPacket.m in Sources */,
 				1026E2FD16D26FE3007A2149 /* SocketIOTransportWebsocket.m in Sources */,
 				1026E2FE16D26FE3007A2149 /* SocketIOTransportXHR.m in Sources */,
-				108288F816D292D800131E85 /* NSCoderApp.xcdatamodeld in Sources */,
+				0940B3DC1700D1760000F516 /* SignupViewController.m in Sources */,
+				0940B3DF1700D1820000F516 /* GroupsViewController.m in Sources */,
+				0940B3E21700D1B90000F516 /* GroupViewController.m in Sources */,
+				0940B3E51700D2140000F516 /* EventViewController.m in Sources */,
+				0940B3E81700D24B0000F516 /* CommentCreateViewController.m in Sources */,
+				0940B3EC1700D28B0000F516 /* GroupParticipantsViewController.m in Sources */,
+				0940B3EF1700D2C20000F516 /* EventAttendeesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1055,19 +1073,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		108288F616D292D800131E85 /* NSCoderApp.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				108288F716D292D800131E85 /* NSCoderApp.xcdatamodel */,
-			);
-			currentVersion = 108288F716D292D800131E85 /* NSCoderApp.xcdatamodel */;
-			path = NSCoderApp.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 1026E1EE16D2462C007A2149 /* Project object */;
 }
