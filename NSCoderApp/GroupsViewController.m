@@ -39,6 +39,10 @@
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"List", @"Map"]];
     self.segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
     self.segmentedControl.selectedSegmentIndex = 0;
+    [self.segmentedControl sizeToFit];
+    CGRect frame = self.segmentedControl.frame;
+    frame.size.width += 100;
+    self.segmentedControl.frame = frame;
     [self.segmentedControl addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventValueChanged];
     
     self.navigationItem.titleView = self.segmentedControl;
@@ -106,9 +110,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     BBObject *group = [self.groups objectAtIndex:indexPath.row];
-    GroupViewController *vc = [[GroupViewController alloc] init];
-    vc.group = group;
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    if (self.delegate) {
+        [self.delegate groupChosen:group];
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Backbeam.h"
+#import "GroupsViewController.h"
 
-@interface GroupViewController : UITableViewController
+@interface GroupViewController : UITableViewController <GroupsChooserDelegate>
 
 @property (nonatomic, strong) BBObject *group;
 

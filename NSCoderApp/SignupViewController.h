@@ -10,4 +10,6 @@
 
 @interface SignupViewController : UIViewController
 
+@property (nonatomic, strong) UIViewController *nextViewController;
+
 @end

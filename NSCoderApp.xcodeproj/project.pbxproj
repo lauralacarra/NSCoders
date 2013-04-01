@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090D457A170A04FE00ADCB17 /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 090D4579170A04FE00ADCB17 /* UIViewController+Helper.m */; };
 		0940B3DC1700D1760000F516 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0940B3DB1700D1760000F516 /* SignupViewController.m */; };
 		0940B3DF1700D1820000F516 /* GroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0940B3DE1700D1820000F516 /* GroupsViewController.m */; };
 		0940B3E21700D1B90000F516 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0940B3E11700D1B90000F516 /* GroupViewController.m */; };
@@ -94,6 +95,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		090D4578170A04FE00ADCB17 /* UIViewController+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Helper.h"; sourceTree = "<group>"; };
+		090D4579170A04FE00ADCB17 /* UIViewController+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Helper.m"; sourceTree = "<group>"; };
 		0940B3DA1700D1760000F516 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		0940B3DB1700D1760000F516 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		0940B3DD1700D1820000F516 /* GroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupsViewController.h; sourceTree = "<group>"; };
@@ -350,6 +353,8 @@
 				0940B3EB1700D28B0000F516 /* GroupParticipantsViewController.m */,
 				0940B3ED1700D2C20000F516 /* EventAttendeesViewController.h */,
 				0940B3EE1700D2C20000F516 /* EventAttendeesViewController.m */,
+				090D4578170A04FE00ADCB17 /* UIViewController+Helper.h */,
+				090D4579170A04FE00ADCB17 /* UIViewController+Helper.m */,
 			);
 			path = NSCoderApp;
 			sourceTree = "<group>";
@@ -861,6 +866,7 @@
 				0940B3E81700D24B0000F516 /* CommentCreateViewController.m in Sources */,
 				0940B3EC1700D28B0000F516 /* GroupParticipantsViewController.m in Sources */,
 				0940B3EF1700D2C20000F516 /* EventAttendeesViewController.m in Sources */,
+				090D457A170A04FE00ADCB17 /* UIViewController+Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

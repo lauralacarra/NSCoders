@@ -8,6 +8,7 @@
 
 #import "GroupViewController.h"
 #import "EventViewController.h"
+#import "GroupsViewController.h"
 
 @interface GroupViewController ()
 
@@ -36,6 +37,27 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(loadEvents) forControlEvents:UIControlEventValueChanged];
+    
+    if (self.group) {
+        [self.refreshControl beginRefreshing];
+        [self loadEvents];
+    }
+    
+    UIBarButtonItem *change = [[UIBarButtonItem alloc] initWithTitle:@"Change" style:UIBarButtonItemStyleBordered target:self action:@selector(changeGroup)];
+    self.navigationItem.leftBarButtonItem = change;
+
+}
+
+- (void)changeGroup {
+    GroupsViewController *groups = [[GroupsViewController alloc] init];
+    groups.delegate = self;
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:groups];
+    [self presentViewController:nc animated:YES completion:nil];
+}
+
+- (void)loadEvents {
     BBQuery *query = [Backbeam queryForEntity:@"event"];
     [query setQuery:@"where group is ?" withParams:@[self.group]];
     [query setFetchPolicy:BBFetchPolicyLocalAndRemote];
@@ -43,13 +65,28 @@
         
         self.events = events;
         [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
         
     } failure:^(NSError *error) {
+        [self.refreshControl endRefreshing];
         NSLog(@"error %@", error);
     }];
     
     self.title = [self.group stringForField:@"name"];
+}
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (!self.group) {
+        [self changeGroup];
+    }
+}
+
+- (void)groupChosen:(BBObject *)group {
+    self.group = group;
+    [self.refreshControl beginRefreshing];
+    [self loadEvents];
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,45 +121,6 @@
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
