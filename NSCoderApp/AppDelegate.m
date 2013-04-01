@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "GroupsViewController.h"
+#import "GroupViewController.h"
 #import "Backbeam.h"
 
 @implementation AppDelegate
@@ -18,9 +18,9 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    GroupsViewController *groups = [[GroupsViewController alloc] init];
+    GroupViewController *group = [[GroupViewController alloc] init];
     
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:groups];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:group];
     self.window.rootViewController = self.navigationController;
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
