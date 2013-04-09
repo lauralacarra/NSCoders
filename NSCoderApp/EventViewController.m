@@ -15,6 +15,11 @@
 @end
 
 @implementation EventViewController
+@synthesize date;
+@synthesize name;
+@synthesize time;
+@synthesize description;
+@synthesize assistSelection;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -45,18 +50,70 @@
 #pragma mark - Table Header customization
 
 - (void)setTableViewHeaderContent {
+  self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:
+                                    CGRectMake(0.0, 0.0, 320.0, 200.0)];
   [self setDateLabel];
   [self setNameLabel];
   [self setTimeLabel];
   [self setDescriptionLabel];
   [self setAssistSelectionControl];
+
+  [self createConstraints];
+}
+
+- (void)createConstraints {
+  NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(date,
+                                                                name,
+                                                                time,
+                                                                description,
+                                                                assistSelection);
+  NSArray* constraint1 = [NSLayoutConstraint
+                          constraintsWithVisualFormat:
+                                          @"H:|-[date(75)]-[name(>=180)]-|"
+                                              options:0
+                                              metrics:nil
+                                                views:viewDictionary];
+  NSArray* constraint2 = [NSLayoutConstraint
+                          constraintsWithVisualFormat:@"V:|-[date(75)]"
+                                              options:0
+                                              metrics:nil
+                                                views:viewDictionary];
+
+  NSArray* constraint3 = [NSLayoutConstraint
+                          constraintsWithVisualFormat:
+                          @"H:|-[date(75)]-[time]-|"
+                          options:0
+                          metrics:nil
+                          views:viewDictionary];
+  NSArray* constraint4 = [NSLayoutConstraint
+                          constraintsWithVisualFormat:
+                          @"H:|-[date(75)]-[assistSelection]-|"
+                          options:0
+                          metrics:nil
+                          views:viewDictionary];
+  NSArray* constraint5 = [NSLayoutConstraint
+                          constraintsWithVisualFormat:
+                          @"V:|-[name(25)]-[time(25)]-[assistSelection(35)]-[description(>=30)]-|"
+                          options:0
+                          metrics:nil
+                          views:viewDictionary];
+  NSArray* constraint6 = [NSLayoutConstraint
+                          constraintsWithVisualFormat:
+                          @"H:|-[description]-|"
+                          options:0
+                          metrics:nil
+                          views:viewDictionary];
+  [self.tableView addConstraints:constraint1];
+  [self.tableView addConstraints:constraint2];
+  [self.tableView addConstraints:constraint3];
+  [self.tableView addConstraints:constraint4];
+  [self.tableView addConstraints:constraint5];
+  [self.tableView addConstraints:constraint6];
 }
 
 - (void)setDateLabel {
-  self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:
-                                    CGRectMake(0.0, 0.0, 320.0, 200.0)];
-  self.date = [[UILabel alloc] initWithFrame:
-               CGRectMake(10.0, 10.0, 75.0, 75.0)];
+  self.date = [[UILabel alloc] init];
+  [self.date setTranslatesAutoresizingMaskIntoConstraints:NO];
   self.date.text = [self formatDayMonth:[self.event dateForField:@"date"]];
   self.date.numberOfLines = 2;
   self.date.font = [UIFont boldSystemFontOfSize:30.0];
@@ -65,25 +122,25 @@
   [self.tableView.tableHeaderView addSubview:self.date];
 }
 
-- (NSString*)formatDayMonth:(NSDate*)date {
+- (NSString*)formatDayMonth:(NSDate*)dateParam {
   NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
   formatter.dateStyle = kCFDateFormatterNoStyle;
   formatter.timeStyle = kCFDateFormatterNoStyle;
   [formatter setDateFormat:@"d MMM"];
-  return [formatter stringFromDate:date];
+  return [formatter stringFromDate:dateParam];
 }
 
-- (NSString*)formatTime:(NSDate*)date {
+- (NSString*)formatTime:(NSDate*)dateParam {
   NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
   formatter.dateStyle = kCFDateFormatterNoStyle;
   formatter.timeStyle = kCFDateFormatterNoStyle;
   [formatter setDateFormat:@"HH:mm"];
-  return [formatter stringFromDate:date];
+  return [formatter stringFromDate:dateParam];
 }
 
 - (void)setNameLabel {
-  self.name = [[UILabel alloc] initWithFrame:
-               CGRectMake(95.0, 10.0, 220.0, 25.0)];
+  self.name = [[UILabel alloc] init];
+  [self.name setTranslatesAutoresizingMaskIntoConstraints:NO];
   self.name.text = [self.event stringForField:@"name"];
   self.name.numberOfLines = 1;
   self.name.font = [UIFont boldSystemFontOfSize:22.0];
@@ -94,8 +151,8 @@
 }
 
 - (void)setTimeLabel {
-  self.time = [[UILabel alloc] initWithFrame:
-               CGRectMake(95.0, 35.0, 220.0, 25.0)];
+  self.time = [[UILabel alloc] init];
+  [self.time setTranslatesAutoresizingMaskIntoConstraints:NO];
   self.time.text = [self formatTime:[self.event dateForField:@"date"]];
   self.time.numberOfLines = 1;
   self.time.font = [UIFont boldSystemFontOfSize:17.0];
@@ -111,16 +168,16 @@
                            @[@"Voy",
                              @"No voy",
                              @"Quizá",]];
-  self.assistSelection.frame = CGRectMake(95.0, 65.0, 220.0, 35.0);
   [self.assistSelection addTarget:self
                            action:@selector(assistChanged)
                  forControlEvents:UIControlEventValueChanged];
+  [self.assistSelection setTranslatesAutoresizingMaskIntoConstraints:NO];
   [self.tableView.tableHeaderView addSubview:self.assistSelection];
 }
 
 - (void)setDescriptionLabel {
-  self.description = [[UILabel alloc] initWithFrame:
-               CGRectMake(10.0, 110.0, 300.0, 80.0)];
+  self.description = [[UILabel alloc] init];
+  [self.description setTranslatesAutoresizingMaskIntoConstraints:NO];
   self.description.text = [self.event stringForField:@"description"];
   self.description.numberOfLines = 0;
   self.description.font = [UIFont boldSystemFontOfSize:17.0];
