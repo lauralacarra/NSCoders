@@ -68,6 +68,8 @@
 		1026E2FC16D26FE3007A2149 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1026E2AD16D25C1D007A2149 /* SocketIOPacket.m */; };
 		1026E2FD16D26FE3007A2149 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1026E2B016D25C1D007A2149 /* SocketIOTransportWebsocket.m */; };
 		1026E2FE16D26FE3007A2149 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 1026E2B216D25C1D007A2149 /* SocketIOTransportXHR.m */; };
+		1073D2CA171817F9009655EB /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073D2C9171817F9009655EB /* LocationViewController.m */; };
+		1073D2CE17181E56009655EB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1073D2CD17181E56009655EB /* AddressBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -260,6 +262,9 @@
 		1026E2F616D26E73007A2149 /* JSONKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		1026E2F716D26E73007A2149 /* JSONKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		1026E2F816D26E73007A2149 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		1073D2C8171817F9009655EB /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		1073D2C9171817F9009655EB /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		1073D2CD17181E56009655EB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1073D2CE17181E56009655EB /* AddressBook.framework in Frameworks */,
 				0940B3F11700D4320000F516 /* MapKit.framework in Frameworks */,
 				1026E2E616D26D04007A2149 /* MobileCoreServices.framework in Frameworks */,
 				1026E2E416D26CC4007A2149 /* SystemConfiguration.framework in Frameworks */,
@@ -318,6 +324,7 @@
 		1026E1F816D2462C007A2149 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1073D2CD17181E56009655EB /* AddressBook.framework */,
 				0940B3F01700D4320000F516 /* MapKit.framework */,
 				1026E2E116D26CA1007A2149 /* libicucore.dylib */,
 				1026E2E516D26D04007A2149 /* MobileCoreServices.framework */,
@@ -355,6 +362,8 @@
 				0940B3EE1700D2C20000F516 /* EventAttendeesViewController.m */,
 				090D4578170A04FE00ADCB17 /* UIViewController+Helper.h */,
 				090D4579170A04FE00ADCB17 /* UIViewController+Helper.m */,
+				1073D2C8171817F9009655EB /* LocationViewController.h */,
+				1073D2C9171817F9009655EB /* LocationViewController.m */,
 			);
 			path = NSCoderApp;
 			sourceTree = "<group>";
@@ -867,6 +876,7 @@
 				0940B3EC1700D28B0000F516 /* GroupParticipantsViewController.m in Sources */,
 				0940B3EF1700D2C20000F516 /* EventAttendeesViewController.m in Sources */,
 				090D457A170A04FE00ADCB17 /* UIViewController+Helper.m in Sources */,
+				1073D2CA171817F9009655EB /* LocationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
