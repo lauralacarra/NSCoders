@@ -213,13 +213,16 @@
 }
 
 - (void)refreshEventData:(BOOL)avoidCache {
-  [self.event refresh:
+  [self.event refresh:@"join last 1000 assistances"
+              success:
    ^(BBObject *object){
      self.event = object;
      self.name.text = [self.event stringForField:@"name"];
      self.date.text = [self formatDayMonth:[self.event dateForField:@"date"]];
      self.time.text = [self formatTime:[self.event dateForField:@"date"]];
      self.description.text = [self.event stringForField:@"description"];
+    BBJoinResult *assistances = [self.event joinResultForField:@"assistances"];
+       
      [self.refreshControl endRefreshing];
    }
               failure:
@@ -228,6 +231,17 @@
      [self.refreshControl endRefreshing];
    }
    ];
+  
+//  BBQuery* query = [Backbeam queryForEntity:@"assistance"];
+//  [query setQuery:@"where user=%@ and event=%@" withParams:@[[Backbeam currentUser],self.event]];
+//  [query setFetchPolicy:BBFetchPolicyLocalAndRemote];
+//  [query fetch:1 offset:0 success:^(NSArray* objects, NSInteger totalCount, BOOL fromCache) {
+//    
+//    [self.refreshControl endRefreshing];
+//  } failure:^(NSError* error) {
+//    NSLog(@"error %@", error);
+//    [self.refreshControl endRefreshing];
+//  }];
 }
 
 - (void)didReceiveMemoryWarning
