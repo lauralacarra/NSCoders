@@ -111,6 +111,12 @@
     
     BBObject *group = [self.groups objectAtIndex:indexPath.row];
     
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    // saving an Object
+    [prefs setObject:[group identifier] forKey:@"groupKey"];
+    
     if (self.delegate) {
         [self.delegate groupChosen:group];
     }
