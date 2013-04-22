@@ -103,6 +103,7 @@
     BBObject *group = [self.groups objectAtIndex:indexPath.row];
     cell.textLabel.text = [group stringForField:@"name"];
     
+    
     return cell;
 }
 

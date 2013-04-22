@@ -26,6 +26,11 @@
     NSString *groupSelected = [prefs objectForKey:@"groupKey"];
     if (groupSelected) {
         vc.group = [Backbeam emptyObjectForEntity:@"group" withIdentifier:groupSelected];
+        [vc.group refresh:^(BBObject* group) {
+            vc.title = [group stringForField:@"name"];
+        } failure:^(BBObject* group,NSError* error){
+            NSLog(@"Ha habido un error");
+        }];
     }
     
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
