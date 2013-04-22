@@ -40,11 +40,8 @@
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    // [self refreshComments:NO];
     [self.refreshControl beginRefreshing];
     [self refresh];
-
-
 }
 
 #pragma mark - Table Header customization
@@ -173,6 +170,17 @@
                  forControlEvents:UIControlEventValueChanged];
   [self.assistSelection setTranslatesAutoresizingMaskIntoConstraints:NO];
   [self.tableView.tableHeaderView addSubview:self.assistSelection];
+  BBObject* currentUser = [Backbeam currentUser];
+  BOOL enabled;
+  if (currentUser == nil) {
+    enabled = NO;
+  } else {
+    enabled = YES;
+  }
+  for (int i = 0 ; i < 3 ; i++) {
+    [self.assistSelection setEnabled:enabled forSegmentAtIndex:i];
+  }
+
 }
 
 - (void)setDescriptionLabel {
@@ -201,11 +209,9 @@
         [query setFetchPolicy:BBFetchPolicyLocalAndRemote];
     }
     [query fetch:100 offset:0 success:^(NSArray* comments, NSInteger total, BOOL fromCache) {
-        
         self.comments = comments;
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
-        
     } failure:^(NSError *error) {
         NSLog(@"error %@", error);
         [self.refreshControl endRefreshing];
@@ -213,16 +219,15 @@
 }
 
 - (void)refreshEventData:(BOOL)avoidCache {
-  [self.event refresh:@"join last 1000 assistances"
-              success:
+  [self.event refresh:
    ^(BBObject *object){
      self.event = object;
      self.name.text = [self.event stringForField:@"name"];
      self.date.text = [self formatDayMonth:[self.event dateForField:@"date"]];
      self.time.text = [self formatTime:[self.event dateForField:@"date"]];
      self.description.text = [self.event stringForField:@"description"];
-    BBJoinResult *assistances = [self.event joinResultForField:@"assistances"];
-       
+//    BBJoinResult *assistances = [self.event joinResultForField:@"assistances"];
+
      [self.refreshControl endRefreshing];
    }
               failure:
@@ -231,29 +236,37 @@
      [self.refreshControl endRefreshing];
    }
    ];
-  
-//  BBQuery* query = [Backbeam queryForEntity:@"assistance"];
-//  [query setQuery:@"where user=%@ and event=%@" withParams:@[[Backbeam currentUser],self.event]];
-//  [query setFetchPolicy:BBFetchPolicyLocalAndRemote];
-//  [query fetch:1 offset:0 success:^(NSArray* objects, NSInteger totalCount, BOOL fromCache) {
-//    
-//    [self.refreshControl endRefreshing];
-//  } failure:^(NSError* error) {
-//    NSLog(@"error %@", error);
-//    [self.refreshControl endRefreshing];
-//  }];
+
+  BBObject* currentUser = [Backbeam currentUser];
+  if (currentUser != nil) {
+    BBQuery* query = [Backbeam queryForEntity:@"assistance"];
+    [query setQuery:@"where user=%@ and event=%@"
+         withParams:@[currentUser,self.event]];
+    [query setFetchPolicy:BBFetchPolicyLocalAndRemote];
+    [query fetch:1
+          offset:0
+         success:
+     ^(NSArray* objects, NSInteger totalCount, BOOL fromCache) {
+      if ([objects count] > 0) {
+        self.userAssistance = objects[1];
+        // TODO Set the current user assitance in the view.
+      }
+      [self.refreshControl endRefreshing];
+    } failure:^(NSError* error) {
+      NSLog(@"error %@", error);
+      [self.refreshControl endRefreshing];
+    }];
+  }
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
 
@@ -336,7 +349,7 @@
 #pragma mark - Assist selection
 
 - (void)assistChanged {
-
+  // TODO Set the assit value of the current user in the data model.
 }
 
 @end

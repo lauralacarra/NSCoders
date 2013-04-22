@@ -12,6 +12,7 @@
 @interface EventViewController : UITableViewController
 
 @property (nonatomic, strong) BBObject *event;
+@property (nonatomic, strong) BBObject *userAssistance;
 @property (nonatomic, strong) UILabel *date;
 @property (nonatomic, strong) UILabel *name;
 @property (nonatomic, strong) UILabel *time;
