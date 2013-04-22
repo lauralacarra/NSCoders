@@ -10,6 +10,8 @@
 #import "LocationViewController.h"
 #import "AssitanceListTableViewController.h"
 
+#import "SignupViewController.h"
+
 @interface EventViewController ()
 
 @property (nonatomic, strong) NSArray *comments;
@@ -42,7 +44,14 @@
 {
     [super viewDidLoad];
     [self setTableViewHeaderContent];
-
+    
+    BBObject *user = [Backbeam currentUser];
+    if (user) {
+        NSLog(@"already registered %@", [user stringForField:@"nickname"]);
+    } else {
+        UIBarButtonItem *login = [[UIBarButtonItem alloc] initWithTitle:@"login" style:UIBarButtonItemStyleDone target:self action:@selector(login:)];
+        self.navigationItem.rightBarButtonItem = login;
+    }
   
     self.title = @"Event";
     
@@ -52,6 +61,13 @@
                   forControlEvents:UIControlEventValueChanged];
     [self.refreshControl beginRefreshing];
     [self refresh];
+}
+
+// this is only for testing porpouses
+- (void)login:(id)sender {
+    SignupViewController *vc = [[SignupViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 #pragma mark - Table Header customization
