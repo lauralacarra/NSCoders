@@ -1,15 +1,14 @@
 //
-//  EventViewController.h
+//  AssitanceListTableViewController.h
 //  NSCoderApp
 //
-//  Created by Alberto Gimeno Brieba on 25/03/13.
+//  Created by Daniel Vela on 4/22/13.
 //  Copyright (c) 2013 nscoder_zgz. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "Backbeam.h"
 
-@interface EventViewController : UITableViewController
+@interface AssitanceListTableViewController : UITableViewController
 
 @property (nonatomic, strong) BBObject *event;
 

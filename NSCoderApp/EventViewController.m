@@ -8,9 +8,17 @@
 
 #import "EventViewController.h"
 #import "LocationViewController.h"
+#import "AssitanceListTableViewController.h"
+
 @interface EventViewController ()
 
 @property (nonatomic, strong) NSArray *comments;
+@property (nonatomic, strong) BBObject *userAssistance;
+@property (nonatomic, strong) UILabel *date;
+@property (nonatomic, strong) UILabel *name;
+@property (nonatomic, strong) UILabel *time;
+@property (nonatomic, strong) UILabel *description;
+@property (nonatomic, strong) UISegmentedControl *assistSelection;
 
 @end
 
@@ -36,10 +44,12 @@
     [self setTableViewHeaderContent];
 
   
-    self.title = @"Evento";
+    self.title = @"Event";
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self
+                            action:@selector(refresh)
+                  forControlEvents:UIControlEventValueChanged];
     [self.refreshControl beginRefreshing];
     [self refresh];
 }
@@ -292,7 +302,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    
+
     if (indexPath.section == 0) {
       [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
       switch (indexPath.row) {
@@ -335,7 +345,11 @@
         [self.navigationController pushViewController:lvc animated:YES];
       }
         break;
-      case 1:
+      case 1: {
+        AssitanceListTableViewController* alivc = [[AssitanceListTableViewController alloc]init];
+        alivc.event = self.event;
+        [self.navigationController pushViewController:alivc animated:YES];
+      }
 
         break;
       default:
