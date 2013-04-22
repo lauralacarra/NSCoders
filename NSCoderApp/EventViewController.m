@@ -9,7 +9,13 @@
 #import "EventViewController.h"
 #import "LocationViewController.h"
 #import "AssitanceListTableViewController.h"
+#import "SignupViewController.h"
 
+enum ASSIST_TYPES {
+  ASSIST_YES = 0,
+  ASSIST_NO = 1,
+  ASSIST_MAYBE = 2
+  };
 @interface EventViewController ()
 
 @property (nonatomic, strong) NSArray *comments;
@@ -180,17 +186,6 @@
                  forControlEvents:UIControlEventValueChanged];
   [self.assistSelection setTranslatesAutoresizingMaskIntoConstraints:NO];
   [self.tableView.tableHeaderView addSubview:self.assistSelection];
-  BBObject* currentUser = [Backbeam currentUser];
-  BOOL enabled;
-  if (currentUser == nil) {
-    enabled = NO;
-  } else {
-    enabled = YES;
-  }
-  for (int i = 0 ; i < 3 ; i++) {
-    [self.assistSelection setEnabled:enabled forSegmentAtIndex:i];
-  }
-
 }
 
 - (void)setDescriptionLabel {
@@ -259,13 +254,24 @@
      ^(NSArray* objects, NSInteger totalCount, BOOL fromCache) {
       if ([objects count] > 0) {
         self.userAssistance = objects[1];
-        // TODO Set the current user assitance in the view.
+        [self setAssistTypeForCurrentUser];
       }
       [self.refreshControl endRefreshing];
     } failure:^(NSError* error) {
       NSLog(@"error %@", error);
       [self.refreshControl endRefreshing];
     }];
+  }
+}
+
+- (void)setAssistTypeForCurrentUser {
+  NSString* assistType = [self.userAssistance stringForField:@"assisttype"];
+  if ([assistType isEqualToString:@"YES"]) {
+    [self.assistSelection setSelectedSegmentIndex:ASSIST_YES];
+  } else if ([assistType isEqualToString:@"NO"]) {
+    [self.assistSelection setSelectedSegmentIndex:ASSIST_NO];
+  } else if ([assistType isEqualToString:@"MAYBE"]) {
+    [self.assistSelection setSelectedSegmentIndex:ASSIST_MAYBE];
   }
 }
 
@@ -363,7 +369,35 @@
 #pragma mark - Assist selection
 
 - (void)assistChanged {
+  BBObject* currentUser = [Backbeam currentUser];
+  if (currentUser == nil) {
+    [self queryForLoginToUser];
+  } else {
+    switch (self.assistSelection.selectedSegmentIndex) {
+      case ASSIST_YES:
+        [self.userAssistance setString:@"YES" forField:@"assisttype"];
+        break;
+      case ASSIST_NO:
+        [self.userAssistance setString:@"NO" forField:@"assisttype"];
+        break;
+      case ASSIST_MAYBE:
+        [self.userAssistance setString:@"MAYBE" forField:@"assisttype"];
+        break;
+      default:
+        break;
+    }
+  }
+
+
   // TODO Set the assit value of the current user in the data model.
+}
+
+- (void)queryForLoginToUser {
+  UINavigationController *nc;
+  SignupViewController* signup = [[SignupViewController alloc] init];
+  nc = [[UINavigationController alloc] initWithRootViewController:signup];
+  nc.modalPresentationStyle = UIModalPresentationFormSheet;
+  [self presentViewController:nc animated:YES completion:nil];
 }
 
 @end
