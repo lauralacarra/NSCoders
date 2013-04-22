@@ -103,6 +103,7 @@
     BBObject *group = [self.groups objectAtIndex:indexPath.row];
     cell.textLabel.text = [group stringForField:@"name"];
     
+    
     return cell;
 }
 
@@ -110,6 +111,12 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     BBObject *group = [self.groups objectAtIndex:indexPath.row];
+    
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    // saving an Object
+    [prefs setObject:[group identifier] forKey:@"groupKey"];
     
     if (self.delegate) {
         [self.delegate groupChosen:group];
