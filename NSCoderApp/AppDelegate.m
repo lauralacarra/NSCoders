@@ -18,9 +18,9 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    GroupViewController *group = [[GroupViewController alloc] init];
+    GroupViewController *vc = [[GroupViewController alloc] init];
     
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:group];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = self.navigationController;
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
