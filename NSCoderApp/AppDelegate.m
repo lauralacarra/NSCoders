@@ -20,6 +20,7 @@
     
     GroupViewController *vc = [[GroupViewController alloc] init];
     
+
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
     // getting an object group
