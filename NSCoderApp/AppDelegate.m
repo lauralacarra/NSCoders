@@ -19,6 +19,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     GroupViewController *vc = [[GroupViewController alloc] init];
+    GroupsViewController *gsvc = [[GroupsViewController alloc] init];
+    
     
 
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -34,8 +36,18 @@
         }];
     }
     
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-    self.window.rootViewController = self.navigationController;
+    NSArray *arr = @[
+                     [[UINavigationController alloc] initWithRootViewController:vc]
+    ];
+    
+    self.tabController = [[UITabBarController alloc] init];
+    [self.tabController setViewControllers:arr animated:YES];
+    
+    self.window.rootViewController = self.tabController;
+    
+    //end custom code
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
