@@ -71,6 +71,8 @@
 		1026E2FE16D26FE3007A2149 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 1026E2B216D25C1D007A2149 /* SocketIOTransportXHR.m */; };
 		1073D2CA171817F9009655EB /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073D2C9171817F9009655EB /* LocationViewController.m */; };
 		1073D2CE17181E56009655EB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1073D2CD17181E56009655EB /* AddressBook.framework */; };
+		D34CF5B4172D418300444A6C /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34CF5B3172D418300444A6C /* EventsViewController.m */; };
+		D3A42FA8172D8B4E00640310 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A42FA7172D8B4E00640310 /* UserProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,6 +270,10 @@
 		1073D2C8171817F9009655EB /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		1073D2C9171817F9009655EB /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		1073D2CD17181E56009655EB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		D34CF5B2172D418300444A6C /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewController.h; sourceTree = "<group>"; };
+		D34CF5B3172D418300444A6C /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
+		D3A42FA6172D8B4E00640310 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		D3A42FA7172D8B4E00640310 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +361,8 @@
 				0940B3DE1700D1820000F516 /* GroupsViewController.m */,
 				0940B3E01700D1B90000F516 /* GroupViewController.h */,
 				0940B3E11700D1B90000F516 /* GroupViewController.m */,
+				D34CF5B2172D418300444A6C /* EventsViewController.h */,
+				D34CF5B3172D418300444A6C /* EventsViewController.m */,
 				0940B3E31700D2140000F516 /* EventViewController.h */,
 				0940B3E41700D2140000F516 /* EventViewController.m */,
 				0940B3E61700D24B0000F516 /* CommentCreateViewController.h */,
@@ -369,6 +377,8 @@
 				1073D2C9171817F9009655EB /* LocationViewController.m */,
 				0B227DB117258C3200BD839E /* AssitanceListTableViewController.h */,
 				0B227DB217258C3200BD839E /* AssitanceListTableViewController.m */,
+				D3A42FA6172D8B4E00640310 /* UserProfileViewController.h */,
+				D3A42FA7172D8B4E00640310 /* UserProfileViewController.m */,
 			);
 			path = NSCoderApp;
 			sourceTree = "<group>";
@@ -883,6 +893,8 @@
 				090D457A170A04FE00ADCB17 /* UIViewController+Helper.m in Sources */,
 				1073D2CA171817F9009655EB /* LocationViewController.m in Sources */,
 				0B227DB317258C3200BD839E /* AssitanceListTableViewController.m in Sources */,
+				D34CF5B4172D418300444A6C /* EventsViewController.m in Sources */,
+				D3A42FA8172D8B4E00640310 /* UserProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
