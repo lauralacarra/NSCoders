@@ -15,7 +15,6 @@
   #import "Backbeam.h"
   #import <SystemConfiguration/SystemConfiguration.h>
   #import <MobileCoreServices/MobileCoreServices.h>
-  #import "SocketIOPacket.h"
   #import <MapKit/MapKit.h>
   #import <AddressBook/AddressBook.h>
 #endif
