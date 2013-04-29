@@ -389,7 +389,7 @@ enum ASSIST_TYPES {
   }
 
 
-  // TODO Set the assit value of the current user in the data model.
+  // TODO: Set the assit value of the current user in the data model.
 }
 
 - (void)queryForLoginToUser {
