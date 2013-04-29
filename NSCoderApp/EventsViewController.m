@@ -1,22 +1,23 @@
 //
-//  GroupsViewController.m
+//  EventsViewController.m
 //  NSCoderApp
 //
-//  Created by Alberto Gimeno Brieba on 25/03/13.
+//  Created by Laura Lacarra on 28/04/13.
 //  Copyright (c) 2013 nscoder_zgz. All rights reserved.
 //
 
-#import "GroupsViewController.h"
+
+#import "EventsViewController.h"
 #import "Backbeam.h"
-#import "GroupViewController.h"
+#import "EventViewController.h"
 
-@interface GroupsViewController ()
+@interface EventsViewController ()
 
-@property (nonatomic, strong) NSArray *groups;
+@property (nonatomic, strong) NSArray *events;
 
 @end
 
-@implementation GroupsViewController
+@implementation EventsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,17 +59,17 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
-    BBQuery *query = [Backbeam queryForEntity:@"group"];
+    BBQuery *query = [Backbeam queryForEntity:@"event"];
     [query setFetchPolicy:BBFetchPolicyLocalAndRemote];
-    [query fetch:100 offset:0 success:^(NSArray* groups, NSInteger total, BOOL fromCache) {
+    [query fetch:100 offset:0 success:^(NSArray* events, NSInteger total, BOOL fromCache) {
         
-        self.groups = groups;
+        self.events = events;
         [self.tableView reloadData];
         
     } failure:^(NSError *error) {
         NSLog(@"error %@", error);
     }];
-
+    
 }
 
 - (void)changeView:(id)sender {
@@ -88,7 +89,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.groups.count;
+    return self.events.count;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -100,8 +101,8 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    BBObject *group = [self.groups objectAtIndex:indexPath.row];
-    cell.textLabel.text = [group stringForField:@"name"];
+    BBObject *event = [self.events objectAtIndex:indexPath.row];
+    cell.textLabel.text = [event stringForField:@"name"];
     
     
     return cell;
@@ -110,17 +111,19 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    BBObject *group = [self.groups objectAtIndex:indexPath.row];
+    BBObject *event = [self.events objectAtIndex:indexPath.row];
     
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
     // saving an Object
-    [prefs setObject:[group identifier] forKey:@"groupKey"];
+    [prefs setObject:[event identifier] forKey:@"eventKey"];
     
-    GroupViewController* gvc = [[GroupViewController alloc] init];
-    gvc.group = group;
-    [self.navigationController pushViewController:gvc animated:YES];}
+  
+    EventViewController* evc = [[EventViewController alloc ] init];
+    evc.event = event;
+    [self.navigationController pushViewController:evc animated:YES];
+}
 
 
 @end

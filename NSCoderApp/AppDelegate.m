@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GroupViewController.h"
+#import "EventsViewController.h"
 #import "Backbeam.h"
 
 @implementation AppDelegate
@@ -19,7 +20,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     GroupViewController *vc = [[GroupViewController alloc] init];
+    
     GroupsViewController *gsvc = [[GroupsViewController alloc] init];
+    EventsViewController *esvc = [[EventsViewController alloc] init];
     
     
 
@@ -37,8 +40,11 @@
     }
     
     NSArray *arr = @[
-                     [[UINavigationController alloc] initWithRootViewController:vc]
-    ];
+                     [[UINavigationController alloc] initWithRootViewController:gsvc],
+                     [[UINavigationController alloc] initWithRootViewController:esvc]
+                    ];
+    
+    
     
     self.tabController = [[UITabBarController alloc] init];
     [self.tabController setViewControllers:arr animated:YES];

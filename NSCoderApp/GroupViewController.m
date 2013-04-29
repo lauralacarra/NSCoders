@@ -52,7 +52,7 @@
 
 - (void)changeGroup {
     GroupsViewController *groups = [[GroupsViewController alloc] init];
-    groups.delegate = self;
+  
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:groups];
     [self presentViewController:nc animated:YES completion:nil];
 }
