@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SignupViewController : UIViewController
+@interface SignupViewController : UITableViewController
 
 @property (nonatomic, strong) UIViewController *nextViewController;
 

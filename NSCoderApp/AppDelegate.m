@@ -18,9 +18,23 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    GroupViewController *group = [[GroupViewController alloc] init];
+    GroupViewController *vc = [[GroupViewController alloc] init];
     
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:group];
+
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    // getting an object group
+    NSString *groupSelected = [prefs objectForKey:@"groupKey"];
+    if (groupSelected) {
+        vc.group = [Backbeam emptyObjectForEntity:@"group" withIdentifier:groupSelected];
+        [vc.group refresh:^(BBObject* group) {
+            vc.title = [group stringForField:@"name"];
+        } failure:^(BBObject* group,NSError* error){
+            NSLog(@"Ha habido un error");
+        }];
+    }
+    
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = self.navigationController;
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];

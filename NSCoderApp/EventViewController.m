@@ -16,6 +16,7 @@ enum ASSIST_TYPES {
   ASSIST_NO = 1,
   ASSIST_MAYBE = 2
   };
+
 @interface EventViewController ()
 
 @property (nonatomic, strong) NSArray *comments;
@@ -49,7 +50,6 @@ enum ASSIST_TYPES {
     [super viewDidLoad];
     [self setTableViewHeaderContent];
 
-  
     self.title = @"Event";
     
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -58,6 +58,13 @@ enum ASSIST_TYPES {
                   forControlEvents:UIControlEventValueChanged];
     [self.refreshControl beginRefreshing];
     [self refresh];
+}
+
+// this is only for testing porpouses
+- (void)login:(id)sender {
+    SignupViewController *vc = [[SignupViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 #pragma mark - Table Header customization
@@ -176,16 +183,17 @@ enum ASSIST_TYPES {
 }
 
 - (void)setAssistSelectionControl {
-  self.assistSelection = [[UISegmentedControl alloc]
-                           initWithItems:
-                           @[@"Voy",
+    self.assistSelection = [[UISegmentedControl alloc]
+                            initWithItems:
+                            @[@"Voy",
                              @"No voy",
                              @"Quizá",]];
-  [self.assistSelection addTarget:self
+    [self.assistSelection setEnabled:NO];
+    [self.assistSelection addTarget:self
                            action:@selector(assistChanged)
                  forControlEvents:UIControlEventValueChanged];
-  [self.assistSelection setTranslatesAutoresizingMaskIntoConstraints:NO];
-  [self.tableView.tableHeaderView addSubview:self.assistSelection];
+    [self.assistSelection setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.tableView.tableHeaderView addSubview:self.assistSelection];
 }
 
 - (void)setDescriptionLabel {
@@ -234,6 +242,8 @@ enum ASSIST_TYPES {
 //    BBJoinResult *assistances = [self.event joinResultForField:@"assistances"];
 
      [self.refreshControl endRefreshing];
+
+       [self refreshAssitance:avoidCache];
    }
               failure:
    ^(BBObject *object, NSError* error) {
@@ -242,28 +252,34 @@ enum ASSIST_TYPES {
    }
    ];
 
-  BBObject* currentUser = [Backbeam currentUser];
-  if (currentUser != nil) {
-    BBQuery* query = [Backbeam queryForEntity:@"assistance"];
-    [query setQuery:@"where user=%@ and event=%@"
-         withParams:@[currentUser,self.event]];
-    [query setFetchPolicy:BBFetchPolicyLocalAndRemote];
-    [query fetch:1
-          offset:0
-         success:
-     ^(NSArray* objects, NSInteger totalCount, BOOL fromCache) {
-      if ([objects count] > 0) {
-        self.userAssistance = objects[1];
-        [self setAssistTypeForCurrentUser];
-      }
-      [self.refreshControl endRefreshing];
-    } failure:^(NSError* error) {
-      NSLog(@"error %@", error);
-      [self.refreshControl endRefreshing];
-    }];
-  }
 }
 
+- (void)refreshAssitance:(BOOL)avoidCache {
+    BBObject* currentUser = [Backbeam currentUser];
+    if (currentUser != nil) {
+        BBQuery* query = [Backbeam queryForEntity:@"assistance"];
+         [query setQuery:@"where event is ? and user is ? "
+             withParams:@[self.event,currentUser]];
+        if (!avoidCache) {
+            [query setFetchPolicy:BBFetchPolicyLocalAndRemote];
+        }
+        [query fetch:1
+              offset:0
+             success:
+         ^(NSArray* objects, NSInteger totalCount, BOOL fromCache) {
+             if ([objects count] > 0) {
+                 self.userAssistance = objects[0];
+                 [self setAssistTypeForCurrentUser];
+             }
+             // User can only change his selection once received from server.
+             [self.assistSelection setEnabled:YES];
+             [self.refreshControl endRefreshing];
+         } failure:^(NSError* error) {
+             NSLog(@"error %@", error);
+             [self.refreshControl endRefreshing];
+         }];
+    }
+}
 - (void)setAssistTypeForCurrentUser {
   NSString* assistType = [self.userAssistance stringForField:@"assisttype"];
   if ([assistType isEqualToString:@"YES"]) {
@@ -369,35 +385,39 @@ enum ASSIST_TYPES {
 #pragma mark - Assist selection
 
 - (void)assistChanged {
-  BBObject* currentUser = [Backbeam currentUser];
-  if (currentUser == nil) {
-    [self queryForLoginToUser];
-  } else {
-    switch (self.assistSelection.selectedSegmentIndex) {
-      case ASSIST_YES:
-        [self.userAssistance setString:@"YES" forField:@"assisttype"];
-        break;
-      case ASSIST_NO:
-        [self.userAssistance setString:@"NO" forField:@"assisttype"];
-        break;
-      case ASSIST_MAYBE:
-        [self.userAssistance setString:@"MAYBE" forField:@"assisttype"];
-        break;
-      default:
-        break;
+    BBObject* currentUser = [Backbeam currentUser];
+    if (currentUser == nil) {
+        [self queryForLoginToUser];
+    } else {
+        if (self.userAssistance ==nil) {
+            self.userAssistance = [Backbeam emptyObjectForEntity:
+                                   @"assitance"];
+            [self.userAssistance setObject:currentUser forField:@"user"];
+            [self.userAssistance setObject:self.event forField:@"event"];
+        }
+        switch (self.assistSelection.selectedSegmentIndex) {
+          case ASSIST_YES:
+            [self.userAssistance setString:@"YES" forField:@"assisttype"];
+            break;
+          case ASSIST_NO:
+            [self.userAssistance setString:@"NO" forField:@"assisttype"];
+            break;
+          case ASSIST_MAYBE:
+            [self.userAssistance setString:@"MAYBE" forField:@"assisttype"];
+            break;
+          default:
+            break;
+        }
+        [self.userAssistance save:
+         ^(BBObject* object) {
+         } failure:^(BBObject* object,NSError* error) {
+             NSLog(@"error %@", error);
+         }];
     }
-  }
-
-
-  // TODO: Set the assit value of the current user in the data model.
 }
 
 - (void)queryForLoginToUser {
-  UINavigationController *nc;
-  SignupViewController* signup = [[SignupViewController alloc] init];
-  nc = [[UINavigationController alloc] initWithRootViewController:signup];
-  nc.modalPresentationStyle = UIModalPresentationFormSheet;
-  [self presentViewController:nc animated:YES completion:nil];
+    [self login:nil];
 }
 
 @end
