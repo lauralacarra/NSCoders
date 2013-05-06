@@ -85,6 +85,7 @@
 		1026E2FE16D26FE3007A2149 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 1026E2B216D25C1D007A2149 /* SocketIOTransportXHR.m */; };
 		1073D2CA171817F9009655EB /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073D2C9171817F9009655EB /* LocationViewController.m */; };
 		1073D2CE17181E56009655EB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1073D2CD17181E56009655EB /* AddressBook.framework */; };
+		D3056333173501920023C8C3 /* NSCoder.png in Resources */ = {isa = PBXBuildFile; fileRef = D3056332173501920023C8C3 /* NSCoder.png */; };
 		D34CF5B4172D418300444A6C /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34CF5B3172D418300444A6C /* EventsViewController.m */; };
 		D3A42FA8172D8B4E00640310 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A42FA7172D8B4E00640310 /* UserProfileViewController.m */; };
 /* End PBXBuildFile section */
@@ -292,6 +293,7 @@
 		1073D2C8171817F9009655EB /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		1073D2C9171817F9009655EB /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		1073D2CD17181E56009655EB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		D3056332173501920023C8C3 /* NSCoder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSCoder.png; sourceTree = "<group>"; };
 		D34CF5B2172D418300444A6C /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewController.h; sourceTree = "<group>"; };
 		D34CF5B3172D418300444A6C /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
 		D3A42FA6172D8B4E00640310 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		09CF63021725A5BA00DF790B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D3056332173501920023C8C3 /* NSCoder.png */,
 				09CF62F61725A5B600DF790B /* 111-user.png */,
 				09CF62F71725A5B600DF790B /* 111-user@2x.png */,
 				09CF62F81725A5B600DF790B /* 112-group.png */,
@@ -861,6 +864,7 @@
 				09CF62FC1725A5B600DF790B /* 111-user@2x.png in Resources */,
 				09CF62FE1725A5B600DF790B /* 112-group.png in Resources */,
 				09CF63001725A5B600DF790B /* 112-group@2x.png in Resources */,
+				D3056333173501920023C8C3 /* NSCoder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
