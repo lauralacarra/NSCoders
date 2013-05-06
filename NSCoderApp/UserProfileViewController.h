@@ -12,8 +12,14 @@
 #import <UIKit/UIKit.h>
 #import "Backbeam.h"
 
-@interface UserProfileViewController : UITableViewController
+@interface UserProfileViewController:  UITableViewController <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
+    UIImagePickerController *imgPicker;
+}
 
 @property (nonatomic, strong) BBObject *user;
+@property (nonatomic, retain) UIImagePickerController *imgPicker;
+
+
+
 
 @end

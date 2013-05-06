@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "GroupViewController.h"
 #import "EventsViewController.h"
+#import "UserProfileViewController.h"
 #import "Backbeam.h"
 
 @implementation AppDelegate
@@ -23,6 +24,7 @@
     
     GroupsViewController *gsvc = [[GroupsViewController alloc] init];
     EventsViewController *esvc = [[EventsViewController alloc] init];
+    UserProfileViewController *upvc =[[UserProfileViewController alloc] init];
     
     
 
@@ -41,7 +43,8 @@
     
     NSArray *arr = @[
                      [[UINavigationController alloc] initWithRootViewController:gsvc],
-                     [[UINavigationController alloc] initWithRootViewController:esvc]
+                     [[UINavigationController alloc] initWithRootViewController:esvc],
+                     [[UINavigationController alloc] initWithRootViewController:upvc]
                     ];
     
     

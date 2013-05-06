@@ -23,6 +23,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.tabBarItem.image = [UIImage imageNamed:@"112-group"];
+        self.tabBarItem.title = @"Groups";
     }
     return self;
 }

@@ -19,11 +19,14 @@
 
 @implementation EventsViewController
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        //self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFeatured tag:0];
+        self.tabBarItem.image = [UIImage imageNamed:@"83-calendar"];
+        self.tabBarItem.title = @"Events";
     }
     return self;
 }
@@ -124,6 +127,8 @@
     evc.event = event;
     [self.navigationController pushViewController:evc animated:YES];
 }
+
+
 
 
 @end
