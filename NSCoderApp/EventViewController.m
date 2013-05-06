@@ -9,8 +9,13 @@
 #import "EventViewController.h"
 #import "LocationViewController.h"
 #import "AssitanceListTableViewController.h"
-
 #import "SignupViewController.h"
+
+enum ASSIST_TYPES {
+  ASSIST_YES = 0,
+  ASSIST_NO = 1,
+  ASSIST_MAYBE = 2
+  };
 
 @interface EventViewController ()
 
@@ -44,15 +49,7 @@
 {
     [super viewDidLoad];
     [self setTableViewHeaderContent];
-    
-    BBObject *user = [Backbeam currentUser];
-    if (user) {
-        NSLog(@"already registered %@", [user stringForField:@"nickname"]);
-    } else {
-        UIBarButtonItem *login = [[UIBarButtonItem alloc] initWithTitle:@"login" style:UIBarButtonItemStyleDone target:self action:@selector(login:)];
-        self.navigationItem.rightBarButtonItem = login;
-    }
-  
+
     self.title = @"Event";
     
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -186,27 +183,17 @@
 }
 
 - (void)setAssistSelectionControl {
-  self.assistSelection = [[UISegmentedControl alloc]
-                           initWithItems:
-                           @[@"Voy",
+    self.assistSelection = [[UISegmentedControl alloc]
+                            initWithItems:
+                            @[@"Voy",
                              @"No voy",
                              @"Quizá",]];
-  [self.assistSelection addTarget:self
+    [self.assistSelection setEnabled:NO];
+    [self.assistSelection addTarget:self
                            action:@selector(assistChanged)
                  forControlEvents:UIControlEventValueChanged];
-  [self.assistSelection setTranslatesAutoresizingMaskIntoConstraints:NO];
-  [self.tableView.tableHeaderView addSubview:self.assistSelection];
-  BBObject* currentUser = [Backbeam currentUser];
-  BOOL enabled;
-  if (currentUser == nil) {
-    enabled = NO;
-  } else {
-    enabled = YES;
-  }
-  for (int i = 0 ; i < 3 ; i++) {
-    [self.assistSelection setEnabled:enabled forSegmentAtIndex:i];
-  }
-
+    [self.assistSelection setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.tableView.tableHeaderView addSubview:self.assistSelection];
 }
 
 - (void)setDescriptionLabel {
@@ -255,6 +242,8 @@
 //    BBJoinResult *assistances = [self.event joinResultForField:@"assistances"];
 
      [self.refreshControl endRefreshing];
+
+       [self refreshAssitance:avoidCache];
    }
               failure:
    ^(BBObject *object, NSError* error) {
@@ -263,25 +252,42 @@
    }
    ];
 
-  BBObject* currentUser = [Backbeam currentUser];
-  if (currentUser != nil) {
-    BBQuery* query = [Backbeam queryForEntity:@"assistance"];
-    [query setQuery:@"where user=%@ and event=%@"
-         withParams:@[currentUser,self.event]];
-    [query setFetchPolicy:BBFetchPolicyLocalAndRemote];
-    [query fetch:1
-          offset:0
-         success:
-     ^(NSArray* objects, NSInteger totalCount, BOOL fromCache) {
-      if ([objects count] > 0) {
-        self.userAssistance = objects[1];
-        // TODO Set the current user assitance in the view.
-      }
-      [self.refreshControl endRefreshing];
-    } failure:^(NSError* error) {
-      NSLog(@"error %@", error);
-      [self.refreshControl endRefreshing];
-    }];
+}
+
+- (void)refreshAssitance:(BOOL)avoidCache {
+    BBObject* currentUser = [Backbeam currentUser];
+    if (currentUser != nil) {
+        BBQuery* query = [Backbeam queryForEntity:@"assistance"];
+         [query setQuery:@"where event is ? and user is ? "
+             withParams:@[self.event,currentUser]];
+        if (!avoidCache) {
+            [query setFetchPolicy:BBFetchPolicyLocalAndRemote];
+        }
+        [query fetch:1
+              offset:0
+             success:
+         ^(NSArray* objects, NSInteger totalCount, BOOL fromCache) {
+             if ([objects count] > 0) {
+                 self.userAssistance = objects[0];
+                 [self setAssistTypeForCurrentUser];
+             }
+             // User can only change his selection once received from server.
+             [self.assistSelection setEnabled:YES];
+             [self.refreshControl endRefreshing];
+         } failure:^(NSError* error) {
+             NSLog(@"error %@", error);
+             [self.refreshControl endRefreshing];
+         }];
+    }
+}
+- (void)setAssistTypeForCurrentUser {
+  NSString* assistType = [self.userAssistance stringForField:@"assisttype"];
+  if ([assistType isEqualToString:@"YES"]) {
+    [self.assistSelection setSelectedSegmentIndex:ASSIST_YES];
+  } else if ([assistType isEqualToString:@"NO"]) {
+    [self.assistSelection setSelectedSegmentIndex:ASSIST_NO];
+  } else if ([assistType isEqualToString:@"MAYBE"]) {
+    [self.assistSelection setSelectedSegmentIndex:ASSIST_MAYBE];
   }
 }
 
@@ -379,7 +385,39 @@
 #pragma mark - Assist selection
 
 - (void)assistChanged {
-  // TODO Set the assit value of the current user in the data model.
+    BBObject* currentUser = [Backbeam currentUser];
+    if (currentUser == nil) {
+        [self queryForLoginToUser];
+    } else {
+        if (self.userAssistance ==nil) {
+            self.userAssistance = [Backbeam emptyObjectForEntity:
+                                   @"assitance"];
+            [self.userAssistance setObject:currentUser forField:@"user"];
+            [self.userAssistance setObject:self.event forField:@"event"];
+        }
+        switch (self.assistSelection.selectedSegmentIndex) {
+          case ASSIST_YES:
+            [self.userAssistance setString:@"YES" forField:@"assisttype"];
+            break;
+          case ASSIST_NO:
+            [self.userAssistance setString:@"NO" forField:@"assisttype"];
+            break;
+          case ASSIST_MAYBE:
+            [self.userAssistance setString:@"MAYBE" forField:@"assisttype"];
+            break;
+          default:
+            break;
+        }
+        [self.userAssistance save:
+         ^(BBObject* object) {
+         } failure:^(BBObject* object,NSError* error) {
+             NSLog(@"error %@", error);
+         }];
+    }
+}
+
+- (void)queryForLoginToUser {
+    [self login:nil];
 }
 
 @end
