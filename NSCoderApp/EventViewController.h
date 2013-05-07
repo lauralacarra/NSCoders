@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 nscoder_zgz. All rights reserved.
 //
 
+#import "EventsViewController.h"
 #import <UIKit/UIKit.h>
 #import "Backbeam.h"
 

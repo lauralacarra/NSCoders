@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "GroupViewController.h"
+#import "EventsViewController.h"
+#import "UserProfileViewController.h"
 #import "Backbeam.h"
 
 @implementation AppDelegate
@@ -19,6 +21,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     GroupViewController *vc = [[GroupViewController alloc] init];
+    
+    GroupsViewController *gsvc = [[GroupsViewController alloc] init];
+    EventsViewController *esvc = [[EventsViewController alloc] init];
+    UserProfileViewController *upvc =[[UserProfileViewController alloc] init];
+    
     
 
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -34,8 +41,22 @@
         }];
     }
     
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-    self.window.rootViewController = self.navigationController;
+    NSArray *arr = @[
+                     [[UINavigationController alloc] initWithRootViewController:gsvc],
+                     [[UINavigationController alloc] initWithRootViewController:esvc],
+                     [[UINavigationController alloc] initWithRootViewController:upvc]
+                    ];
+    
+    
+    
+    self.tabController = [[UITabBarController alloc] init];
+    [self.tabController setViewControllers:arr animated:YES];
+    
+    self.window.rootViewController = self.tabController;
+    
+    //end custom code
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

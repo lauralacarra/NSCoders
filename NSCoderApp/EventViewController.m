@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 nscoder_zgz. All rights reserved.
 //
 
+#import "EventsViewController.h"
 #import "EventViewController.h"
 #import "LocationViewController.h"
 #import "AssitanceListTableViewController.h"
@@ -419,5 +420,7 @@ enum ASSIST_TYPES {
 - (void)queryForLoginToUser {
     [self login:nil];
 }
+
+
 
 @end

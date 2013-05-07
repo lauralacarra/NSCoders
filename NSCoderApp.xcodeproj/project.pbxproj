@@ -55,6 +55,9 @@
 		1073D2CA171817F9009655EB /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1073D2C9171817F9009655EB /* LocationViewController.m */; };
 		1073D2CE17181E56009655EB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1073D2CD17181E56009655EB /* AddressBook.framework */; };
 		22463074718542469550F313 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6681194B0BBE40E4A840D767 /* libPods.a */; };
+		D3056333173501920023C8C3 /* NSCoder.png in Resources */ = {isa = PBXBuildFile; fileRef = D3056332173501920023C8C3 /* NSCoder.png */; };
+		D34CF5B4172D418300444A6C /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34CF5B3172D418300444A6C /* EventsViewController.m */; };
+		D3A42FA8172D8B4E00640310 /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A42FA7172D8B4E00640310 /* UserProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +129,11 @@
 		1073D2CD17181E56009655EB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		1BDB7F62BCC54E21A46A2B9F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		6681194B0BBE40E4A840D767 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3056332173501920023C8C3 /* NSCoder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSCoder.png; sourceTree = "<group>"; };
+		D34CF5B2172D418300444A6C /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewController.h; sourceTree = "<group>"; };
+		D34CF5B3172D418300444A6C /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
+		D3A42FA6172D8B4E00640310 /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		D3A42FA7172D8B4E00640310 /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +173,7 @@
 		09CF63021725A5BA00DF790B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D3056332173501920023C8C3 /* NSCoder.png */,
 				09CF62F61725A5B600DF790B /* 111-user.png */,
 				09CF62F71725A5B600DF790B /* 111-user@2x.png */,
 				09CF62F81725A5B600DF790B /* 112-group.png */,
@@ -231,6 +240,8 @@
 				0940B3DE1700D1820000F516 /* GroupsViewController.m */,
 				0940B3E01700D1B90000F516 /* GroupViewController.h */,
 				0940B3E11700D1B90000F516 /* GroupViewController.m */,
+				D34CF5B2172D418300444A6C /* EventsViewController.h */,
+				D34CF5B3172D418300444A6C /* EventsViewController.m */,
 				0940B3E31700D2140000F516 /* EventViewController.h */,
 				0940B3E41700D2140000F516 /* EventViewController.m */,
 				0940B3E61700D24B0000F516 /* CommentCreateViewController.h */,
@@ -245,6 +256,8 @@
 				1073D2C9171817F9009655EB /* LocationViewController.m */,
 				0B227DB117258C3200BD839E /* AssitanceListTableViewController.h */,
 				0B227DB217258C3200BD839E /* AssitanceListTableViewController.m */,
+				D3A42FA6172D8B4E00640310 /* UserProfileViewController.h */,
+				D3A42FA7172D8B4E00640310 /* UserProfileViewController.m */,
 			);
 			path = NSCoderApp;
 			sourceTree = "<group>";
@@ -372,6 +385,7 @@
 				09CF62FC1725A5B600DF790B /* 111-user@2x.png in Resources */,
 				09CF62FE1725A5B600DF790B /* 112-group.png in Resources */,
 				09CF63001725A5B600DF790B /* 112-group@2x.png in Resources */,
+				D3056333173501920023C8C3 /* NSCoder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +452,8 @@
 				090D457A170A04FE00ADCB17 /* UIViewController+Helper.m in Sources */,
 				1073D2CA171817F9009655EB /* LocationViewController.m in Sources */,
 				0B227DB317258C3200BD839E /* AssitanceListTableViewController.m in Sources */,
+				D34CF5B4172D418300444A6C /* EventsViewController.m in Sources */,
+				D3A42FA8172D8B4E00640310 /* UserProfileViewController.m in Sources */,
 				09CF62EC1725A16F00DF790B /* UIView+ActivityIndicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
