@@ -577,11 +577,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1BDB7F62BCC54E21A46A2B9F /* Pods.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Vela";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NSCoderApp/NSCoderApp-Prefix.pch";
 				INFOPLIST_FILE = "NSCoderApp/NSCoderApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "023560A7-51BF-4BCF-BCCD-52FC2134C124";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
