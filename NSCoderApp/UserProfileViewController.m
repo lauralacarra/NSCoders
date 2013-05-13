@@ -7,7 +7,7 @@
 //
 
 #import "UserProfileViewController.h"
-#import "ImagePickerOptionsViewController.h"
+//#import "ImagePickerOptionsViewController.h"
 #import "SignupViewController.h"
 #import "AppDelegate.h"
 
