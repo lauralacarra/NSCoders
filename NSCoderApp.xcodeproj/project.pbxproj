@@ -16,6 +16,7 @@
 		0940B3EC1700D28B0000F516 /* GroupParticipantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0940B3EB1700D28B0000F516 /* GroupParticipantsViewController.m */; };
 		0940B3EF1700D2C20000F516 /* EventAttendeesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0940B3EE1700D2C20000F516 /* EventAttendeesViewController.m */; };
 		0940B3F11700D4320000F516 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0940B3F01700D4320000F516 /* MapKit.framework */; };
+		095C56A91741618D00D22AA8 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 095C56A81741618D00D22AA8 /* CommentCell.m */; };
 		09CF62EC1725A16F00DF790B /* UIView+ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CF62EB1725A16E00DF790B /* UIView+ActivityIndicator.m */; };
 		09CF62ED1725A16F00DF790B /* UIView+ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09CF62EB1725A16E00DF790B /* UIView+ActivityIndicator.m */; };
 		09CF62F21725A59D00DF790B /* 83-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CF62F01725A59D00DF790B /* 83-calendar.png */; };
@@ -89,6 +90,8 @@
 		0940B3ED1700D2C20000F516 /* EventAttendeesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAttendeesViewController.h; sourceTree = "<group>"; };
 		0940B3EE1700D2C20000F516 /* EventAttendeesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventAttendeesViewController.m; sourceTree = "<group>"; };
 		0940B3F01700D4320000F516 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		095C56A71741618D00D22AA8 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		095C56A81741618D00D22AA8 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		09CF62EA1725A16E00DF790B /* UIView+ActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ActivityIndicator.h"; sourceTree = "<group>"; };
 		09CF62EB1725A16E00DF790B /* UIView+ActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ActivityIndicator.m"; sourceTree = "<group>"; };
 		09CF62F01725A59D00DF790B /* 83-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar.png"; sourceTree = "<group>"; };
@@ -263,6 +266,8 @@
 				D3A42FA7172D8B4E00640310 /* UserProfileViewController.m */,
 				0B4953FF174140240097FD7B /* CommentEditViewController.h */,
 				0B495400174140240097FD7B /* CommentEditViewController.m */,
+				095C56A71741618D00D22AA8 /* CommentCell.h */,
+				095C56A81741618D00D22AA8 /* CommentCell.m */,
 			);
 			path = NSCoderApp;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 				D3A42FA8172D8B4E00640310 /* UserProfileViewController.m in Sources */,
 				09CF62EC1725A16F00DF790B /* UIView+ActivityIndicator.m in Sources */,
 				0B495401174140240097FD7B /* CommentEditViewController.m in Sources */,
+				095C56A91741618D00D22AA8 /* CommentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

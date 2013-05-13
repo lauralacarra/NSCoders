@@ -12,6 +12,7 @@
 #import "AssitanceListTableViewController.h"
 #import "SignupViewController.h"
 #import "CommentEditViewController.h"
+#import "CommentCell.h"
 
 enum ASSIST_TYPES {
   ASSIST_YES = 0,
@@ -227,7 +228,7 @@ enum ASSIST_TYPES {
 
 - (void)refreshComments:(BOOL)avoidCache {
     BBQuery *query = [Backbeam queryForEntity:@"comment"];
-    [query setQuery:@"where event is ?" withParams:@[self.event]];
+    [query setQuery:@"where event is ? join user" withParams:@[self.event]];
     if (!avoidCache) {
         [query setFetchPolicy:BBFetchPolicyLocalAndRemote];
     }
@@ -329,13 +330,13 @@ enum ASSIST_TYPES {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-
     if (indexPath.section == 0) {
+        static NSString *CellIdentifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        }
+        
       [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
       switch (indexPath.row) {
         case 0: {
@@ -357,15 +358,27 @@ enum ASSIST_TYPES {
                                  @"cell %d", indexPath.row];
           break;
       }
+        return cell;
     } else {
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
-
-        BBObject *comment = [self.comments objectAtIndex:indexPath.row];
-        cell.textLabel.text = [comment stringForField:@"text"];
-        cell.detailTextLabel.text = nil;
+        static NSString *CellIdentifier = @"comment";
+        CommentCell *cell = (CommentCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[CommentCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+            cell.textLabel.numberOfLines = 0;
+        }
+        
+        BBObject *comment = self.comments[indexPath.row];
+        cell.comment = comment;
+        return cell;
     }
-    
-    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 44;
+    }
+    BBObject *comment = self.comments[indexPath.row];
+    return [CommentCell heightForComment:comment width:self.tableView.frame.size.width-20];
 }
 
 #pragma mark - Table view delegate
