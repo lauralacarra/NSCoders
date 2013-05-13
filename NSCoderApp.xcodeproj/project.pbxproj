@@ -31,6 +31,7 @@
 		09CF63001725A5B600DF790B /* 112-group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CF62F91725A5B600DF790B /* 112-group@2x.png */; };
 		09CF63011725A5B600DF790B /* 112-group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09CF62F91725A5B600DF790B /* 112-group@2x.png */; };
 		0B227DB317258C3200BD839E /* AssitanceListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B227DB217258C3200BD839E /* AssitanceListTableViewController.m */; };
+		0B495401174140240097FD7B /* CommentEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B495400174140240097FD7B /* CommentEditViewController.m */; };
 		1026E1FA16D2462D007A2149 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1026E1F916D2462D007A2149 /* UIKit.framework */; };
 		1026E1FC16D2462D007A2149 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1026E1FB16D2462D007A2149 /* Foundation.framework */; };
 		1026E1FE16D2462D007A2149 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1026E1FD16D2462D007A2149 /* CoreGraphics.framework */; };
@@ -98,6 +99,8 @@
 		09CF62F91725A5B600DF790B /* 112-group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group@2x.png"; sourceTree = "<group>"; };
 		0B227DB117258C3200BD839E /* AssitanceListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssitanceListTableViewController.h; sourceTree = "<group>"; };
 		0B227DB217258C3200BD839E /* AssitanceListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssitanceListTableViewController.m; sourceTree = "<group>"; };
+		0B4953FF174140240097FD7B /* CommentEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentEditViewController.h; sourceTree = "<group>"; };
+		0B495400174140240097FD7B /* CommentEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentEditViewController.m; sourceTree = "<group>"; };
 		1026E1F616D2462C007A2149 /* NSCoderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSCoderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1026E1F916D2462D007A2149 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1026E1FB16D2462D007A2149 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -258,6 +261,8 @@
 				0B227DB217258C3200BD839E /* AssitanceListTableViewController.m */,
 				D3A42FA6172D8B4E00640310 /* UserProfileViewController.h */,
 				D3A42FA7172D8B4E00640310 /* UserProfileViewController.m */,
+				0B4953FF174140240097FD7B /* CommentEditViewController.h */,
+				0B495400174140240097FD7B /* CommentEditViewController.m */,
 			);
 			path = NSCoderApp;
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 				D34CF5B4172D418300444A6C /* EventsViewController.m in Sources */,
 				D3A42FA8172D8B4E00640310 /* UserProfileViewController.m in Sources */,
 				09CF62EC1725A16F00DF790B /* UIView+ActivityIndicator.m in Sources */,
+				0B495401174140240097FD7B /* CommentEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

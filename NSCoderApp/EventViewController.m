@@ -11,6 +11,7 @@
 #import "LocationViewController.h"
 #import "AssitanceListTableViewController.h"
 #import "SignupViewController.h"
+#import "CommentEditViewController.h"
 
 enum ASSIST_TYPES {
   ASSIST_YES = 0,
@@ -46,6 +47,11 @@ enum ASSIST_TYPES {
     return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self refresh];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -59,6 +65,9 @@ enum ASSIST_TYPES {
                   forControlEvents:UIControlEventValueChanged];
     [self.refreshControl beginRefreshing];
     [self refresh];
+
+    UIBarButtonItem* addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addComment:)];
+    self.navigationItem.rightBarButtonItem = addButton;
 }
 
 // this is only for testing porpouses
@@ -349,8 +358,11 @@ enum ASSIST_TYPES {
           break;
       }
     } else {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+
         BBObject *comment = [self.comments objectAtIndex:indexPath.row];
         cell.textLabel.text = [comment stringForField:@"text"];
+        cell.detailTextLabel.text = nil;
     }
     
     return cell;
@@ -421,6 +433,10 @@ enum ASSIST_TYPES {
     [self login:nil];
 }
 
-
+- (void)addComment:(id)sender {
+    CommentEditViewController* evc = [[CommentEditViewController alloc ] init];
+    evc.event = self.event;
+    [self.navigationController pushViewController:evc animated:YES];
+}
 
 @end
