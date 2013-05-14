@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="uvR-bk-eLI">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+    </dependencies>
+    <scenes>
+        <!--I Phone Elements Controller-->
+        <scene sceneID="ve1-lg-k3I">
+            <objects>
+                <viewController id="lkW-gh-6XG" customClass="iPhoneElementsController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LGr-jS-BVU">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0FR-kX-NbG">
+                                <rect key="frame" x="12" y="116" width="145" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Gray Button" backgroundImage="ipad-button-grey.png">
+                                    <color key="titleColor" red="0.52156862749999999" green="0.59215686270000001" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qCV-yE-y5P">
+                                <rect key="frame" x="165" y="116" width="144" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Gray Button" backgroundImage="ipad-button-grey-pressed.png">
+                                    <color key="titleColor" red="0.52156862749999999" green="0.59215686270000001" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DCZ-Lk-AaC">
+                                <rect key="frame" x="12" y="6" width="145" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <size key="titleShadowOffset" width="0.0" height="-1"/>
+                                <state key="normal" title="Blue Button" backgroundImage="ipad-button-blue.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.18039215689999999" blue="0.33725490200000002" alpha="0.67000000000000004" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="L40-Ih-oYK">
+                                <rect key="frame" x="164" y="6" width="145" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <size key="titleShadowOffset" width="0.0" height="-1"/>
+                                <state key="normal" title="Blue Button" backgroundImage="ipad-button-blue-pressed.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.18039215689999999" blue="0.33725490200000002" alpha="0.67000000000000004" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2sK-Lr-lTS">
+                                <rect key="frame" x="12" y="171" width="145" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <size key="titleShadowOffset" width="0.0" height="-1"/>
+                                <state key="normal" title="Green Button" backgroundImage="ipad-button-green.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.14901960780000001" green="0.28235294119999998" blue="0.0" alpha="0.66000000000000003" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="M6k-5I-MeM">
+                                <rect key="frame" x="165" y="171" width="145" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <size key="titleShadowOffset" width="0.0" height="-1"/>
+                                <state key="normal" title="Green Button" backgroundImage="ipad-button-green-pressed.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.14901960780000001" green="0.28235294119999998" blue="0.0" alpha="0.66000000000000003" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IyW-7f-Qwq">
+                                <rect key="frame" x="12" y="61" width="145" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <size key="titleShadowOffset" width="0.0" height="-1"/>
+                                <state key="normal" title="Red Button" backgroundImage="ipad-button-red.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.42745098040000001" green="0.0" blue="0.0" alpha="0.67000000000000004" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FGh-JW-WZX">
+                                <rect key="frame" x="164" y="61" width="145" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <size key="titleShadowOffset" width="0.0" height="-1"/>
+                                <state key="normal" title="Red Button" backgroundImage="ipad-button-red-pressed.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.42745098040000001" green="0.0" blue="0.0" alpha="0.67000000000000004" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WBp-H3-i34">
+                                <rect key="frame" x="0.0" y="226" width="320" height="141"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MasterCell" rowHeight="67" id="znw-wB-XV5" customClass="MasterCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="67"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="list-item-bg.png" id="yMG-zv-J7t">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lance Maeyer" lineBreakMode="tailTruncation" minimumFontSize="10" id="ngu-eC-Oza">
+                                                    <rect key="frame" x="78" y="5" width="214" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.2666666667" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lorem ipsum dolor sit amet, sed do   consectetur" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" id="1wb-vi-OzN">
+                                                    <rect key="frame" x="78" y="25" width="214" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.4431372549" green="0.52156862749999999" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="29d-OY-uni">
+                                                    <rect key="frame" x="20" y="9" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ipad-arrow.png" id="hsl-Ue-uRl">
+                                                    <rect key="frame" x="305" y="25" width="9" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="avatarImageView" destination="29d-OY-uni" id="8rx-2c-fem"/>
+                                            <outlet property="bgImageView" destination="yMG-zv-J7t" id="INB-a1-fPI"/>
+                                            <outlet property="disclosureImageView" destination="hsl-Ue-uRl" id="eTz-3X-xVg"/>
+                                            <outlet property="textLabel" destination="1wb-vi-OzN" id="S2U-l1-84t"/>
+                                            <outlet property="titleLabel" destination="ngu-eC-Oza" id="zmI-6W-vmu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="leG-rE-baS"/>
+                    <connections>
+                        <outlet property="tableListView" destination="WBp-H3-i34" id="n2L-pV-kgP"/>
+                        <segue destination="ltA-vL-ybE" kind="push" identifier="main" id="Yq0-ut-CZD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bfp-EV-BgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1343" y="51"/>
+        </scene>
+        <!--I Phone Controls Controller-->
+        <scene sceneID="fny-fJ-ftP">
+            <objects>
+                <viewController id="bsd-AV-U5q" customClass="iPhoneControlsController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ODs-Fl-50l">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="JvD-zx-ho5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text Input" minimumFontSize="17" background="ipad-text-input.png" id="O8m-4k-OxX">
+                                        <rect key="frame" x="10" y="310" width="300" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="0.38574931569999998" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <progressView opaque="NO" contentMode="scaleToFill" progress="0.5" id="Ir2-xs-gfU">
+                                        <rect key="frame" x="10" y="280" width="300" height="9"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </progressView>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hYy-cs-JRl"/>
+                    <connections>
+                        <outlet property="nativePB" destination="Ir2-xs-gfU" id="r49-cO-nbh"/>
+                        <outlet property="scrollView" destination="JvD-zx-ho5" id="BuJ-Aj-jCN"/>
+                        <outlet property="textInput" destination="O8m-4k-OxX" id="5pb-r7-f7B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o5G-LA-bzv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1361" y="701"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tNe-FV-arq">
+            <objects>
+                <viewController id="ltA-vL-ybE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9J1-wU-ybL">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ce1-xv-OsZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fZr-FF-LyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1911" y="51"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="zG7-AX-mKJ">
+            <objects>
+                <tabBarController id="uvR-bk-eLI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="f8R-eN-K6m">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="6n4-N9-rif" kind="relationship" relationship="viewControllers" id="HH6-6G-5DJ"/>
+                        <segue destination="KpX-Gu-1jt" kind="relationship" relationship="viewControllers" id="5jC-0O-FAT"/>
+                        <segue destination="Y9j-Ix-f3A" kind="relationship" relationship="viewControllers" id="KPo-oU-whe"/>
+                        <segue destination="iuo-gW-eAj" kind="relationship" relationship="viewControllers" id="Bez-2M-LeY"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="69q-dd-I3M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="115" y="51"/>
+        </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="hWd-mi-7QF">
+            <objects>
+                <navigationController id="6n4-N9-rif" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="qVe-b2-Op9"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="EYo-bg-cb4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lkW-gh-6XG" kind="relationship" relationship="rootViewController" id="gZm-Oa-zZ7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fvR-FB-6SA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="817" y="51"/>
+        </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="aFn-yG-BEb">
+            <objects>
+                <navigationController id="KpX-Gu-1jt" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="3qb-SG-jTo"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="akp-hG-h0e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bsd-AV-U5q" kind="relationship" relationship="rootViewController" id="7v7-4m-kkz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wvc-b4-w5t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="835" y="701"/>
+        </scene>
+        <!--View Controller - Item-->
+        <scene sceneID="Xhl-b8-NRi">
+            <objects>
+                <viewController id="Y9j-Ix-f3A" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XMJ-PC-NtS">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="sIr-bD-Yny"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YS5-W5-WEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="827" y="1358"/>
+        </scene>
+        <!--View Controller - Item-->
+        <scene sceneID="uDn-Ct-bWs">
+            <objects>
+                <viewController id="iuo-gW-eAj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VMc-r9-EpU">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="j4F-RX-fOn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3fV-Ba-EWt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="827" y="2010"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ipad-arrow.png" width="9" height="14"/>
+        <image name="ipad-button-blue-pressed.png" width="156" height="49"/>
+        <image name="ipad-button-blue.png" width="157" height="49"/>
+        <image name="ipad-button-green-pressed.png" width="156" height="49"/>
+        <image name="ipad-button-green.png" width="159" height="51"/>
+        <image name="ipad-button-grey-pressed.png" width="156" height="49"/>
+        <image name="ipad-button-grey.png" width="159" height="51"/>
+        <image name="ipad-button-red-pressed.png" width="156" height="49"/>
+        <image name="ipad-button-red.png" width="159" height="51"/>
+        <image name="ipad-text-input.png" width="327" height="41"/>
+        <image name="list-item-bg.png" width="320" height="67"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
