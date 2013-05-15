@@ -11,14 +11,19 @@ $ git clone git@github.com:veladan/NSCoders.git
 $ cd NSCoders
 ```
 
-2. Update submodules:    
+2. Install cocoapods     
 ```
-$ git submodule init      
-$ git submodule update    
-```
-
-3. Open Xcode:   
-```
-$ open NSCoderApp.xcodeproj
+$ [sudo] gem install cocoapods
+$ pod setup  
 ```
 
+3. Configure de workspace:   
+```
+$ pod install 
+```
+
+4. Open de project
+```
+$ $ open App.xcworkspace   
+```
+Don't open the file xcodeproj, or you can not compile the project.
