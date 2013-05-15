@@ -16,7 +16,7 @@
 @property (nonatomic, strong) UIImageView *image;
 @property (nonatomic, strong) UILabel *name;
 @property (nonatomic, strong) UILabel *description;
-- (void)showActionSheet:(id)sender; //Declare method to show action sheet
+- (void)showActionSheet; //Declare method to show action sheet
 @end
 
 @implementation UserProfileViewController
@@ -157,18 +157,18 @@
 
 - (void)showImagePickerCamera{
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        [self presentModalViewController:self.imgPicker animated:YES];
+        [self presentViewController:self.imgPicker animated:YES completion:nil];
     }
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    [[picker parentViewController] dismissViewControllerAnimated:YES completion:nil];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     selectedImage.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    [[picker parentViewController] dismissViewControllerAnimated:YES completion:nil];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 

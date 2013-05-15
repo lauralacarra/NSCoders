@@ -5,12 +5,10 @@ PODS:
     - JSONKit (~> 1.4.0)
     - socket.IO (~> 0.2.5)
   - JSONKit (1.4)
-  - MLUIColorAdditions (1.0.0)
   - socket.IO (0.2.5):
     - SocketRocket (~> 0.2)
   - SocketRocket (0.2.0)
-  - TSMessages (0.9.1):
-    - MLUIColorAdditions
+  - TSMessages (0.9.2)
 
 DEPENDENCIES:
   - Backbeam (from `git@github.com:backbeam/BackbeamFramework.git`)
@@ -26,9 +24,8 @@ SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
   Backbeam: a467f3745072d233cf694f141cc89a61719a429d
   JSONKit: 0e3367114e2799047082628156e09893d8268f91
-  MLUIColorAdditions: c128da8c87b724cdc6c9a1b4cfe8832ca62b8d2a
   socket.IO: b24b39d603516f2b0a4107568eaef6f7e57e91d9
   SocketRocket: bca43a94bd9aac3a629df42c06843402399ee67b
-  TSMessages: 916e168ec96b90fbe2756bc4e28c555a2abc83fc
+  TSMessages: 9169abb0e6962810b9aa8f731d7c481b05a73dec
 
 COCOAPODS: 0.19.1
