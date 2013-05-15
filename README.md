@@ -24,6 +24,6 @@ $ pod install
 
 4. Open de project
 ```
-$ open NSCoders.xcworkspace   
+$ open NSCoderApp.xcworkspace   
 ```
-Don't open the file NSCoders.xcodeproj, or you can not compile the project.
+Don't open the file NSCoderApp.xcodeproj, or you can not compile the project.
