@@ -11,11 +11,12 @@ PODS:
   - TSMessages (0.9.2)
 
 DEPENDENCIES:
-  - Backbeam (from `git@github.com:backbeam/BackbeamFramework.git`)
+  - Backbeam (from `git@github.com:backbeam/BackbeamFramework.git`, commit `1cace4a65`)
   - TSMessages (from `git://github.com/toursprung/TSMessages.git`)
 
 EXTERNAL SOURCES:
   Backbeam:
+    :commit: 1cace4a65
     :git: git@github.com:backbeam/BackbeamFramework.git
   TSMessages:
     :git: git://github.com/toursprung/TSMessages.git
